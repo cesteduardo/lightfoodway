@@ -51,6 +51,18 @@
     const pontos = Array.from(carrossel.querySelectorAll('[data-ponto]'));
     const contador = carrossel.querySelector('[data-contador]');
     const INTERVALO = 7000;
+
+    // Fundos dos slides 2+ só carregam depois do load: o slide 1 já vem
+    // no HTML (preload + fetchpriority=high) e não pode disputar banda
+    // com ele durante o carregamento inicial.
+    const carregarFundosOciosos = () => {
+      carrossel.querySelectorAll('[data-bg]').forEach((fundo) => {
+        fundo.style.backgroundImage = `url('${fundo.dataset.bg}')`;
+        fundo.removeAttribute('data-bg');
+      });
+    };
+    if (document.readyState === 'complete') carregarFundosOciosos();
+    else window.addEventListener('load', carregarFundosOciosos);
     let atual = 0;
     let timer = null;
 

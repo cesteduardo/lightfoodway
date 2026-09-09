@@ -149,8 +149,11 @@
       grade.innerHTML = '<svg class="mapa__svg" viewBox="0 0 ' + mapa.w + ' ' + mapa.h +
         '" role="img" aria-label="Mapa interativo do Brasil">' + estados + '</svg>';
     } else {
-      grade.innerHTML = Object.keys(UFS).map((sigla) => '<button type="button" class="uf" data-uf="' +
-        sigla + '">' + sigla + '</button>').join('');
+      grade.innerHTML = Object.keys(UFS).map((sigla) => {
+        const tem = comUnidade.has(sigla);
+        return '<button type="button" class="uf' + (tem ? ' tem-unidade' : '') + '" data-uf="' +
+          sigla + '" tabindex="' + (tem ? '0' : '-1') + '" aria-disabled="' + String(!tem) + '">' + sigla + '</button>';
+      }).join('');
     }
 
     grade.addEventListener('click', (e) => {
