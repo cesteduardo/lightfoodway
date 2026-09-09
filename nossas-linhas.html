@@ -19,11 +19,10 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/img/logo-lightfoodway.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 <body>
 <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
@@ -84,24 +83,24 @@
   <section class="secao">
     <div class="container">
       <div class="filtros" data-filtros role="group" aria-label="Filtrar linhas">
-        <button class="filtro is-ativo" type="button" data-filtro="todas">Todas</button>
-        <button class="filtro" type="button" data-filtro="caseirinhos">Caseirinhos</button>
-        <button class="filtro" type="button" data-filtro="frango">Frango</button>
-        <button class="filtro" type="button" data-filtro="bovina">Bovinas</button>
-        <button class="filtro" type="button" data-filtro="peixes">Peixes</button>
-        <button class="filtro" type="button" data-filtro="massas">Massas</button>
-        <button class="filtro" type="button" data-filtro="maromba">Maromba</button>
-        <button class="filtro" type="button" data-filtro="veggie">Veggie</button>
-        <button class="filtro" type="button" data-filtro="sopas">Sopas</button>
-        <button class="filtro" type="button" data-filtro="sucos">Sucos</button>
-        <button class="filtro" type="button" data-filtro="extras">Doces, Salgados e Pizzas</button>
+        <button class="filtro is-ativo" type="button" data-filtro="todas" aria-pressed="true">Todas</button>
+        <button class="filtro" type="button" data-filtro="caseirinhos" aria-pressed="false">Caseirinhos</button>
+        <button class="filtro" type="button" data-filtro="frango" aria-pressed="false">Frango</button>
+        <button class="filtro" type="button" data-filtro="bovina" aria-pressed="false">Bovinas</button>
+        <button class="filtro" type="button" data-filtro="peixes" aria-pressed="false">Peixes</button>
+        <button class="filtro" type="button" data-filtro="massas" aria-pressed="false">Massas</button>
+        <button class="filtro" type="button" data-filtro="maromba" aria-pressed="false">Maromba</button>
+        <button class="filtro" type="button" data-filtro="veggie" aria-pressed="false">Veggie</button>
+        <button class="filtro" type="button" data-filtro="sopas" aria-pressed="false">Sopas</button>
+        <button class="filtro" type="button" data-filtro="sucos" aria-pressed="false">Sucos</button>
+        <button class="filtro" type="button" data-filtro="extras" aria-pressed="false">Doces, Salgados e Pizzas</button>
       </div>
 
-      <div class="grid grid--3">
+      <div class="grid grid--linhas">
         <article class="linha-card revela" data-linha="caseirinhos" id="caseirinhos">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/caseirinhos.jpg" alt="Linha Caseirinhos — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/caseirinhos.webp" alt="Linha Caseirinhos — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Casa</span>
             </div>
             <div class="linha-card__corpo">
@@ -114,7 +113,7 @@
         <article class="linha-card revela" data-linha="frango" id="frango">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/frango.jpg" alt="Linha Frango — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/frango.webp" alt="Linha Frango — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Aves</span>
             </div>
             <div class="linha-card__corpo">
@@ -127,7 +126,7 @@
         <article class="linha-card revela" data-linha="bovina" id="bovina">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/bovina.jpg" alt="Linha Bovinas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/bovina.webp" alt="Linha Bovinas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Carnes</span>
             </div>
             <div class="linha-card__corpo">
@@ -140,7 +139,7 @@
         <article class="linha-card revela" data-linha="peixes" id="peixes">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/peixes.jpg" alt="Linha Peixes — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/peixes.webp" alt="Linha Peixes — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Do mar</span>
             </div>
             <div class="linha-card__corpo">
@@ -153,7 +152,7 @@
         <article class="linha-card revela" data-linha="massas" id="massas">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/massas.jpg" alt="Linha Massas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/massas.webp" alt="Linha Massas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Massas</span>
             </div>
             <div class="linha-card__corpo">
@@ -166,7 +165,7 @@
         <article class="linha-card revela" data-linha="maromba" id="maromba">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/maromba.jpg" alt="Linha Maromba — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/maromba.webp" alt="Linha Maromba — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Treino</span>
             </div>
             <div class="linha-card__corpo">
@@ -179,7 +178,7 @@
         <article class="linha-card revela" data-linha="veggie" id="veggie">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/veggie.jpg" alt="Linha Veggie — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/veggie.webp" alt="Linha Veggie — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Sem carne</span>
             </div>
             <div class="linha-card__corpo">
@@ -192,7 +191,7 @@
         <article class="linha-card revela" data-linha="sopas" id="sopas">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/sopas.jpg" alt="Linha Sopas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/sopas.webp" alt="Linha Sopas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Quentinho</span>
             </div>
             <div class="linha-card__corpo">
@@ -205,7 +204,7 @@
         <article class="linha-card revela" data-linha="sucos" id="sucos">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/sucos.jpg" alt="Linha Sucos — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/sucos.webp" alt="Linha Sucos — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Bebidas</span>
             </div>
             <div class="linha-card__corpo">
@@ -218,7 +217,7 @@
         <article class="linha-card revela" data-linha="extras" id="extras">
           <a class="linha-card__link" href="unidades.html">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/extras.jpg" alt="Linha Doces, Salgados e Pizzas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/extras.webp" alt="Linha Doces, Salgados e Pizzas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
               <span class="linha-card__etiqueta">Extras</span>
             </div>
             <div class="linha-card__corpo">
@@ -313,7 +312,7 @@
         <li><a href="politica-de-privacidade.html">Privacidade</a></li>
         <li><a href="termos-de-uso.html">Termos</a></li>
       </ul>
-      <a class="gr-credit" href="https://grbrands.com.br" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por GR Brands — abrir site"><span>Desenvolvido por</span><span class="gr-lockup"><img src="assets/img/grbrands-icon-white.svg" alt=""><strong>GR Brands<span class="gr-dot">.</span></strong></span></a>
+      <a class="gr-credit" href="https://grbrands.com.br" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por GR Brands — abrir site"><span>Desenvolvido por</span><span class="gr-lockup"><img src="assets/img/grbrands-icon-white.svg" alt="" width="24" height="24"><strong>GR Brands<span class="gr-dot">.</span></strong></span></a>
     </div>
   </div>
 </footer>
@@ -322,6 +321,6 @@
   <a class="btn btn--primario btn--bloco" href="unidades.html">Encontre uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
 </div>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.min.js" defer></script>
 </body>
 </html>
