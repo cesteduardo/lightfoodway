@@ -8,41 +8,63 @@
   const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   /* ---------- HEADER ---------- */
+  // Ilha dinâmica: solta do topo assim que a rolagem começa
   const header = document.querySelector('[data-header]');
   if (header) {
-    const aoRolar = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+    const aoRolar = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
     aoRolar();
     window.addEventListener('scroll', aoRolar, { passive: true });
   }
 
-  /* ---------- MENU MOBILE ---------- */
+  /* ---------- MENU DE TELA CHEIA ---------- */
   const toggle = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
   if (toggle && nav) {
-    const definir = (aberto) => {
+    // Com o painel aberto o resto da página fica inerte: o Tab circula só
+    // entre o header e os itens do menu.
+    const fora = document.querySelectorAll('main, footer, .cta-mobile, .pular-link');
+    const definir = (aberto, devolveFoco) => {
       nav.classList.toggle('is-aberto', aberto);
+      if (header) header.classList.toggle('menu-aberto', aberto);
       toggle.setAttribute('aria-expanded', String(aberto));
       toggle.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
       document.body.classList.toggle('menu-aberto', aberto);
+      fora.forEach((el) => { el.inert = aberto; });
+      if (!aberto && devolveFoco) toggle.focus();
     };
-    const fechar = () => definir(false);
 
     toggle.addEventListener('click', () => definir(!nav.classList.contains('is-aberto')));
-    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', fechar));
-
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => definir(false)));
+    const logo = header ? header.querySelector('.logo') : null;
+    if (logo) logo.addEventListener('click', () => definir(false));
     document.addEventListener('keydown', (e) => {
-      if (e.key !== 'Escape' || !nav.classList.contains('is-aberto')) return;
-      fechar();
-      toggle.focus();
+      if (e.key === 'Escape' && nav.classList.contains('is-aberto')) definir(false, true);
     });
-    // Clique fora fecha o menu
-    document.addEventListener('click', (e) => {
-      if (!nav.classList.contains('is-aberto')) return;
-      if (nav.contains(e.target) || toggle.contains(e.target)) return;
-      fechar();
-    });
-    window.addEventListener('resize', () => { if (window.innerWidth > 1320) fechar(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 1180) definir(false); });
   }
+
+  /* ---------- BOTÕES ----------
+     No celular não existe hover: o toque segura a animação de preenchimento
+     pelo mesmo tempo que ela leva para acontecer. Fica no documento para
+     valer também nos botões que o JS cria (cartões de unidade). */
+  const TEMPO_BOTAO = 450;
+  const relogios = new WeakMap();
+  document.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse') return;
+    const btn = e.target.closest('.btn');
+    if (!btn) return;
+    clearTimeout(relogios.get(btn));
+    btn.classList.add('is-pressionado');
+  }, { passive: true });
+  const soltar = (e) => {
+    if (e.pointerType === 'mouse') return;
+    const btn = e.target.closest('.btn');
+    if (!btn) return;
+    clearTimeout(relogios.get(btn));
+    relogios.set(btn, setTimeout(() => btn.classList.remove('is-pressionado'), TEMPO_BOTAO));
+  };
+  document.addEventListener('pointerup', soltar, { passive: true });
+  document.addEventListener('pointercancel', soltar, { passive: true });
 
   /* ---------- CARROSSEL DO HERO ---------- */
   const carrossel = document.querySelector('[data-carrossel]');
@@ -50,7 +72,7 @@
     const slides = Array.from(carrossel.querySelectorAll('[data-slide]'));
     const pontos = Array.from(carrossel.querySelectorAll('[data-ponto]'));
     const contador = carrossel.querySelector('[data-contador]');
-    const INTERVALO = 7000;
+    const INTERVALO = 6000;
 
     // Fundos dos slides 2+ só carregam depois do load: o slide 1 já vem
     // no HTML (preload + fetchpriority=high) e não pode disputar banda
@@ -66,11 +88,28 @@
     let atual = 0;
     let timer = null;
 
-    const ir = (i) => {
+    const saidas = new Map();
+    // direcao: 'frente' (o título novo sobe por baixo) ou 'tras' (desce por cima)
+    const ir = (i, direcao) => {
+      const anterior = atual;
       atual = (i + slides.length) % slides.length;
+      const trocou = atual !== anterior;
+      if (trocou) {
+        // Quem entra volta à posição de espera da direção nova antes de animar
+        slides[atual].classList.remove('is-saindo');
+        carrossel.dataset.direcao = direcao || (atual > anterior ? 'frente' : 'tras');
+        void carrossel.offsetWidth;
+      }
       slides.forEach((s, k) => {
         const ativo = k === atual;
         s.classList.toggle('is-ativo', ativo);
+        if (trocou && k === anterior) {
+          s.classList.add('is-saindo');
+          clearTimeout(saidas.get(s));
+          saidas.set(s, setTimeout(() => s.classList.remove('is-saindo'), 700));
+        } else if (!ativo) {
+          s.classList.remove('is-saindo');
+        }
         s.setAttribute('aria-hidden', String(!ativo));
         // Links de slides ocultos ficam fora da ordem de tabulação
         s.querySelectorAll('a, button').forEach((f) => {
@@ -89,13 +128,13 @@
     const tocar = () => {
       parar();
       if (reduzMovimento.matches) return;
-      timer = setInterval(() => ir(atual + 1), INTERVALO);
+      timer = setInterval(() => ir(atual + 1, 'frente'), INTERVALO);
     };
 
     const prev = carrossel.querySelector('[data-prev]');
     const next = carrossel.querySelector('[data-next]');
-    if (prev) prev.addEventListener('click', () => { ir(atual - 1); tocar(); });
-    if (next) next.addEventListener('click', () => { ir(atual + 1); tocar(); });
+    if (prev) prev.addEventListener('click', () => { ir(atual - 1, 'tras'); tocar(); });
+    if (next) next.addEventListener('click', () => { ir(atual + 1, 'frente'); tocar(); });
     pontos.forEach((p, k) => p.addEventListener('click', () => { ir(k); tocar(); }));
 
     carrossel.addEventListener('mouseenter', parar);
@@ -106,8 +145,8 @@
     reduzMovimento.addEventListener('change', tocar);
 
     carrossel.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') { ir(atual - 1); tocar(); }
-      if (e.key === 'ArrowRight') { ir(atual + 1); tocar(); }
+      if (e.key === 'ArrowLeft') { ir(atual - 1, 'tras'); tocar(); }
+      if (e.key === 'ArrowRight') { ir(atual + 1, 'frente'); tocar(); }
     });
 
     // Swipe (ignora gestos majoritariamente verticais, que são rolagem)
@@ -119,7 +158,7 @@
       if (x0 === null) return;
       const dx = e.changedTouches[0].clientX - x0;
       const dy = e.changedTouches[0].clientY - y0;
-      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { ir(atual + (dx < 0 ? 1 : -1)); tocar(); }
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { ir(atual + (dx < 0 ? 1 : -1), dx < 0 ? 'frente' : 'tras'); tocar(); }
       x0 = y0 = null;
     }, { passive: true });
 
@@ -175,6 +214,7 @@
       itens.forEach((item) => {
         item.hidden = !(alvo === 'todas' || item.dataset.linha === alvo);
       });
+      document.dispatchEvent(new Event('galeria:atualizar'));
     });
   }
 
@@ -190,6 +230,129 @@
     img.addEventListener('error', falhou);
     if (img.complete && img.naturalWidth === 0) falhou();
   });
+
+
+  /* ---------- GALERIAS DE LINHAS ---------- */
+  const gradesGaleria = Array.from(document.querySelectorAll('.grid--4, .grid--linhas'))
+    .filter((grade) => grade.querySelector('.linha-card__foto img'));
+
+  if (gradesGaleria.length) {
+    const iconeSeta = '<svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+    const modal = document.createElement('div');
+    modal.className = 'galeria-modal';
+    modal.hidden = true;
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Visualização ampliada da galeria');
+    modal.innerHTML = `
+      <button class="galeria-modal__fechar" type="button" aria-label="Fechar imagem">×</button>
+      <button class="galeria-modal__seta galeria-modal__seta--anterior" type="button" aria-label="Imagem anterior">${iconeSeta}</button>
+      <figure class="galeria-modal__figura">
+        <img class="galeria-modal__imagem" src="" alt="">
+        <figcaption class="galeria-modal__legenda"></figcaption>
+      </figure>
+      <button class="galeria-modal__seta galeria-modal__seta--proxima" type="button" aria-label="Próxima imagem">${iconeSeta}</button>`;
+    document.body.appendChild(modal);
+
+    const imagemModal = modal.querySelector('.galeria-modal__imagem');
+    const legendaModal = modal.querySelector('.galeria-modal__legenda');
+    const fecharModal = modal.querySelector('.galeria-modal__fechar');
+    let imagensAtuais = [];
+    let imagemAtual = 0;
+    let focoAnterior = null;
+    let toqueX = null;
+
+    const renderizarModal = () => {
+      const imagem = imagensAtuais[imagemAtual];
+      if (!imagem) return;
+      imagemModal.src = imagem.currentSrc || imagem.src;
+      imagemModal.alt = imagem.alt;
+      legendaModal.innerHTML = `<span>${imagem.alt}</span><small class="galeria-modal__contador">${imagemAtual + 1} / ${imagensAtuais.length}</small>`;
+    };
+    const navegarModal = (passo) => {
+      imagemAtual = (imagemAtual + passo + imagensAtuais.length) % imagensAtuais.length;
+      renderizarModal();
+    };
+    const abrirModal = (imagens, indice, acionador) => {
+      imagensAtuais = imagens;
+      imagemAtual = indice;
+      focoAnterior = acionador;
+      renderizarModal();
+      modal.hidden = false;
+      document.body.classList.add('modal-aberto');
+      fecharModal.focus();
+    };
+    const fechar = () => {
+      modal.hidden = true;
+      document.body.classList.remove('modal-aberto');
+      imagemModal.removeAttribute('src');
+      if (focoAnterior) focoAnterior.focus();
+    };
+
+    fecharModal.addEventListener('click', fechar);
+    modal.querySelector('.galeria-modal__seta--anterior').addEventListener('click', () => navegarModal(-1));
+    modal.querySelector('.galeria-modal__seta--proxima').addEventListener('click', () => navegarModal(1));
+    modal.addEventListener('click', (e) => { if (e.target === modal) fechar(); });
+    modal.addEventListener('pointerdown', (e) => { toqueX = e.clientX; });
+    modal.addEventListener('pointerup', (e) => {
+      if (toqueX === null || Math.abs(e.clientX - toqueX) < 45) return;
+      navegarModal(e.clientX < toqueX ? 1 : -1);
+      toqueX = null;
+    });
+    document.addEventListener('keydown', (e) => {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') fechar();
+      if (e.key === 'ArrowLeft') navegarModal(-1);
+      if (e.key === 'ArrowRight') navegarModal(1);
+    });
+
+    gradesGaleria.forEach((grade, indiceGrade) => {
+      grade.classList.add('galeria-mobile');
+      const controles = document.createElement('div');
+      controles.className = 'galeria-controles';
+      controles.setAttribute('aria-label', `Navegação da galeria ${indiceGrade + 1}`);
+      controles.innerHTML = `
+        <button class="galeria-seta galeria-seta--anterior" type="button" aria-label="Item anterior">${iconeSeta}</button>
+        <button class="galeria-seta galeria-seta--proxima" type="button" aria-label="Próximo item">${iconeSeta}</button>`;
+      grade.before(controles);
+
+      const itensVisiveis = () => Array.from(grade.querySelectorAll(':scope > .linha-card:not([hidden])'));
+      const imagensVisiveis = () => itensVisiveis()
+        .map((item) => item.querySelector('.linha-card__foto img')).filter(Boolean);
+      const itemMaisProximo = (itens) => itens.reduce((melhor, item, i) =>
+        Math.abs(item.offsetLeft - grade.scrollLeft) < Math.abs(itens[melhor].offsetLeft - grade.scrollLeft) ? i : melhor, 0);
+      const mover = (passo) => {
+        const itens = itensVisiveis();
+        if (itens.length < 2) return;
+        const atual = itemMaisProximo(itens);
+        const destino = (atual + passo + itens.length) % itens.length;
+        itens[destino].scrollIntoView({ behavior: reduzMovimento.matches ? 'auto' : 'smooth', block: 'nearest', inline: 'start' });
+      };
+      const atualizar = () => {
+        const poucosItens = itensVisiveis().length < 2;
+        controles.hidden = poucosItens;
+        if (poucosItens) grade.scrollLeft = 0;
+      };
+
+      controles.querySelector('.galeria-seta--anterior').addEventListener('click', () => mover(-1));
+      controles.querySelector('.galeria-seta--proxima').addEventListener('click', () => mover(1));
+      grade.addEventListener('click', (e) => {
+        const foto = e.target.closest('.linha-card__foto');
+        if (!foto || !grade.contains(foto)) return;
+        const imagem = foto.querySelector('img');
+        const imagens = imagensVisiveis();
+        if (!imagem || !imagens.includes(imagem)) return;
+        e.preventDefault();
+        abrirModal(imagens, imagens.indexOf(imagem), foto.closest('a'));
+      });
+      document.addEventListener('galeria:atualizar', atualizar);
+      atualizar();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 640) gradesGaleria.forEach((grade) => { grade.scrollLeft = 0; });
+    });
+  }
 
   /* ---------- REVEAL ON SCROLL ---------- */
   const alvos = document.querySelectorAll('.revela');
@@ -212,6 +375,134 @@
       // nada pode ficar invisível para sempre.
       setTimeout(() => alvos.forEach((el) => el.classList.add('is-visivel')), 2500);
     }
+  }
+
+
+  /* ---------- DOCUMENTOS JURÍDICOS EM MODAL ---------- */
+  const linksLegais = Array.from(document.querySelectorAll('[data-legal]'));
+  if (linksLegais.length) {
+    const documentosLegais = {
+      privacidade: {
+        titulo: 'Política de Privacidade',
+        html: `
+          <p class="legal-modal__atualizacao">Última atualização: [INSERIR DATA DE VIGÊNCIA]</p>
+          <p class="legal-pendente"><strong>Informações pendentes antes da publicação:</strong> preencher razão social, CNPJ, endereço do controlador, dados do encarregado e confirmar com a hospedagem a existência e a retenção de logs técnicos. O texto deve receber revisão jurídica final.</p>
+          <h3>1. Identificação do controlador</h3>
+          <p>Esta Política descreve como <strong>[RAZÃO SOCIAL RESPONSÁVEL PELA LIGHT FOOD WAY]</strong>, inscrita no CNPJ sob nº <strong>[CNPJ]</strong>, com sede em <strong>[ENDEREÇO COMPLETO]</strong> (“Light Food Way” ou “controlador”), trata dados pessoais no site institucional.</p>
+          <h3>2. Escopo e funcionamento do site</h3>
+          <p>O site apresenta a marca, suas linhas de produtos, informações institucionais e unidades. Ele não cria contas, não conclui pedidos, não processa pagamentos e não envia o conteúdo da busca textual para um servidor próprio identificado no projeto.</p>
+          <h3>3. Dados tratados e finalidades</h3>
+          <ul>
+            <li><strong>Busca por cidade, estado, bairro ou endereço:</strong> o termo é usado localmente no navegador para filtrar a base exibida e não é armazenado pelo código do site.</li>
+            <li><strong>CEP:</strong> quando são informados oito dígitos, o CEP é enviado diretamente à API pública ViaCEP para identificar cidade e estado e apresentar unidades próximas.</li>
+            <li><strong>Geolocalização:</strong> somente após o usuário clicar em “Usar minha localização” e autorizar o navegador, latitude e longitude são usadas em memória para calcular distâncias. O código não envia nem armazena essas coordenadas em servidor próprio.</li>
+            <li><strong>Contato por e-mail:</strong> o link “Fale conosco” abre o aplicativo de e-mail do usuário. O site não captura o conteúdo da mensagem; os dados enviados voluntariamente passam a ser tratados no canal de atendimento.</li>
+            <li><strong>Dados técnicos de acesso:</strong> o código auditado não contém analytics, pixels ou mecanismos próprios de coleta. <strong>[CONFIRMAR COM O PROVEDOR DE HOSPEDAGEM se há logs de IP, data, horário, navegador e páginas acessadas, bem como finalidade e prazo de retenção.]</strong></li>
+          </ul>
+          <h3>4. Bases legais</h3>
+          <p>A busca textual processada apenas no dispositivo não gera, no código auditado, envio ao controlador. Para a consulta voluntária de CEP, a base indicada é o legítimo interesse em fornecer o localizador solicitado pelo usuário, nos termos do art. 7º, IX, da LGPD. Para a geolocalização opcional, a base indicada é o consentimento, nos termos do art. 7º, I, manifestado pela ação do usuário e pela autorização no navegador. <strong>[VALIDAR ESSAS BASES COM O RESPONSÁVEL JURÍDICO E COM A OPERAÇÃO DEFINITIVA.]</strong></p>
+          <h3>5. Compartilhamento e integrações</h3>
+          <p>Não foi identificado CRM nem compartilhamento automático com ferramentas de marketing. O CEP é transmitido ao ViaCEP quando a consulta correspondente é realizada. WhatsApp, iFood, Google Maps e redes sociais somente são acessados quando o usuário escolhe seus links; a partir daí, o tratamento ocorre conforme as políticas dos respectivos terceiros e fora deste site.</p>
+          <h3>6. Cookies e tecnologias de rastreamento</h3>
+          <p>O código atual não cria cookies, não utiliza armazenamento local ou de sessão e não contém ferramentas de analytics, publicidade comportamental ou pixels de rastreamento. <strong>[CONFIRMAR se a infraestrutura definitiva de hospedagem, CDN ou proteção adiciona cookies ou outras tecnologias antes da publicação.]</strong></p>
+          <h3>7. Armazenamento, retenção e segurança</h3>
+          <p>Termos de busca e coordenadas permanecem apenas durante o uso da página e não são persistidos pelo código. O controlador deve adotar medidas técnicas e administrativas adequadas aos riscos do tratamento. <strong>[DESCREVER medidas da hospedagem, controles de acesso, HTTPS, responsáveis e prazos de retenção efetivamente adotados.]</strong></p>
+          <h3>8. Direitos do titular</h3>
+          <p>Nos limites da LGPD, o titular pode solicitar confirmação e acesso ao tratamento, correção, anonimização, bloqueio ou eliminação de dados desnecessários ou irregulares, portabilidade quando aplicável, informações sobre compartilhamento, revogação do consentimento, oposição e revisão de decisões automatizadas. O atendimento pode exigir confirmação de identidade e observar hipóteses legais de conservação.</p>
+          <h3>9. Canal de privacidade</h3>
+          <p>Solicitações podem ser encaminhadas para <strong>contato@lightfoodway.com.br</strong>. Encarregado pelo tratamento: <strong>[NOME OU IDENTIFICAÇÃO DO ENCARREGADO]</strong>. Canal específico: <strong>[E-MAIL/TELEFONE DO ENCARREGADO, SE APLICÁVEL]</strong>.</p>
+          <h3>10. Atualizações</h3>
+          <p>Esta Política poderá ser atualizada para refletir mudanças legais, técnicas ou operacionais. A versão vigente e sua data de atualização serão disponibilizadas neste mesmo modal.</p>`
+      },
+      termos: {
+        titulo: 'Termos de Uso',
+        html: `
+          <p class="legal-modal__atualizacao">Última atualização: [INSERIR DATA DE VIGÊNCIA]</p>
+          <p class="legal-pendente"><strong>Informações pendentes antes da publicação:</strong> preencher os dados empresariais do responsável pelo site e submeter este documento à revisão jurídica final.</p>
+          <h3>1. Identificação e aceitação</h3>
+          <p>Este site é mantido por <strong>[RAZÃO SOCIAL RESPONSÁVEL PELA LIGHT FOOD WAY]</strong>, CNPJ nº <strong>[CNPJ]</strong>, com endereço em <strong>[ENDEREÇO COMPLETO]</strong>. Ao navegar, o usuário declara ter lido estes Termos e compromete-se a utilizar o site de forma lícita e compatível com suas finalidades.</p>
+          <h3>2. Finalidade do site</h3>
+          <p>O site é institucional e informativo. Ele apresenta a Light Food Way, suas linhas de refeições e produtos, o processo informado de ultracongelamento, dúvidas frequentes e dados das unidades, além de ajudar o usuário a localizar uma unidade e acessar canais de pedido.</p>
+          <h3>3. Localização de unidades</h3>
+          <p>A busca pode usar cidade, estado, bairro, endereço, CEP ou, mediante autorização, a localização do dispositivo. Distâncias e resultados são estimativas destinadas a facilitar a consulta. O usuário deve confirmar endereço, horário, área de atendimento e disponibilidade diretamente com a unidade.</p>
+          <h3>4. Pedidos, pagamentos e atendimento</h3>
+          <p>O site não recebe pedidos, não vende produtos e não processa pagamentos. Pedidos e atendimentos ocorrem diretamente com a unidade ou em plataformas externas indicadas, como WhatsApp e iFood. Preços, taxas, prazos, disponibilidade, entrega, cancelamento e reembolso são informados e regidos pelo canal em que a contratação ocorrer, sem prejuízo dos direitos previstos na legislação brasileira.</p>
+          <h3>5. Produtos e informações alimentares</h3>
+          <p>Linhas, composição, peso, disponibilidade e apresentação podem variar. Informações nutricionais, ingredientes, alergênicos, conservação, validade e modo de preparo constantes no rótulo do produto prevalecem sobre textos gerais do site. Pessoas com alergias, intolerâncias ou necessidades alimentares devem conferir a embalagem e buscar orientação profissional quando necessário.</p>
+          <h3>6. Conteúdo e disponibilidade</h3>
+          <p>A Light Food Way busca manter o conteúdo correto e atualizado, mas informações de unidades, horários, canais e portfólio podem mudar. O acesso também pode ser temporariamente interrompido por manutenção, atualização, falhas de terceiros ou eventos fora do controle razoável do responsável.</p>
+          <h3>7. Links e serviços de terceiros</h3>
+          <p>O site contém acessos para ViaCEP, WhatsApp, iFood, Google Maps, redes sociais e o site da empresa desenvolvedora. Esses serviços possuem termos, práticas e responsabilidades próprios. A presença de um link não significa que a Light Food Way controla a disponibilidade, a segurança ou o tratamento realizado pelo terceiro.</p>
+          <h3>8. Uso permitido</h3>
+          <p>É proibido utilizar o site para finalidade ilícita, tentar acessar áreas ou sistemas sem autorização, interferir no funcionamento, introduzir código malicioso, coletar dados de forma abusiva ou reproduzir conteúdo em violação a direitos de terceiros.</p>
+          <h3>9. Propriedade intelectual</h3>
+          <p>Marcas, identidade visual, textos, imagens, ilustrações, código e demais conteúdos pertencem aos respectivos titulares e são protegidos pela legislação aplicável. Nenhum direito de uso comercial, reprodução ou modificação é concedido além da navegação pessoal e informativa.</p>
+          <h3>10. Responsabilidades e limites</h3>
+          <p>Cada parte responde pelos atos sob seu controle. Nada nestes Termos exclui responsabilidades que não possam ser afastadas por lei, nem limita direitos do consumidor. O responsável pelo site não responde por indisponibilidade ou conteúdo de serviços de terceiros, ressalvadas as hipóteses em que a legislação determine responsabilidade.</p>
+          <h3>11. Privacidade</h3>
+          <p>O tratamento de dados relacionado ao site é descrito na Política de Privacidade, disponível no rodapé e exibida sem sair da página atual.</p>
+          <h3>12. Alterações</h3>
+          <p>Estes Termos poderão ser atualizados para acompanhar mudanças no site, na operação ou na legislação. A versão vigente e sua data serão disponibilizadas neste modal.</p>
+          <h3>13. Lei aplicável e contato</h3>
+          <p>Aplicam-se as leis da República Federativa do Brasil, inclusive a legislação de proteção de dados e de defesa do consumidor. Eventuais controvérsias observarão o foro competente definido pela legislação aplicável. Contato: <strong>contato@lightfoodway.com.br</strong>.</p>`
+      }
+    };
+
+    const modalLegal = document.createElement('div');
+    modalLegal.className = 'legal-modal';
+    modalLegal.hidden = true;
+    modalLegal.setAttribute('role', 'dialog');
+    modalLegal.setAttribute('aria-modal', 'true');
+    modalLegal.setAttribute('aria-labelledby', 'legal-modal-titulo');
+    modalLegal.innerHTML = `
+      <section class="legal-modal__painel" aria-describedby="legal-modal-conteudo">
+        <header class="legal-modal__topo">
+          <h2 class="legal-modal__titulo" id="legal-modal-titulo"></h2>
+          <button class="legal-modal__fechar" type="button" aria-label="Fechar documento">×</button>
+        </header>
+        <div class="legal-modal__conteudo" id="legal-modal-conteudo" tabindex="0"></div>
+      </section>`;
+    document.body.appendChild(modalLegal);
+
+    const tituloLegal = modalLegal.querySelector('.legal-modal__titulo');
+    const conteudoLegal = modalLegal.querySelector('.legal-modal__conteudo');
+    const fecharLegal = modalLegal.querySelector('.legal-modal__fechar');
+    let focoLegalAnterior = null;
+
+    const abrirLegal = (tipo, acionador) => {
+      const documento = documentosLegais[tipo];
+      if (!documento) return;
+      focoLegalAnterior = acionador;
+      tituloLegal.textContent = documento.titulo;
+      conteudoLegal.innerHTML = documento.html;
+      conteudoLegal.scrollTop = 0;
+      modalLegal.hidden = false;
+      document.body.classList.add('modal-aberto');
+      fecharLegal.focus();
+    };
+    const fecharDocumentoLegal = () => {
+      modalLegal.hidden = true;
+      document.body.classList.remove('modal-aberto');
+      conteudoLegal.textContent = '';
+      if (focoLegalAnterior) focoLegalAnterior.focus();
+    };
+
+    linksLegais.forEach((link) => link.addEventListener('click', (e) => {
+      e.preventDefault();
+      abrirLegal(link.dataset.legal, link);
+    }));
+    fecharLegal.addEventListener('click', fecharDocumentoLegal);
+    modalLegal.addEventListener('click', (e) => { if (e.target === modalLegal) fecharDocumentoLegal(); });
+    document.addEventListener('keydown', (e) => {
+      if (modalLegal.hidden) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        fecharDocumentoLegal();
+      } else if (e.key === 'Tab') {
+        e.preventDefault();
+        (document.activeElement === fecharLegal ? conteudoLegal : fecharLegal).focus();
+      }
+    });
   }
 
   /* ---------- ANO NO RODAPÉ ---------- */

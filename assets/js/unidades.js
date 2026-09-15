@@ -53,16 +53,23 @@
 
   /* ---------- 4. HELPERS ---------- */
   const ICO = {
-    pin:    '<path d="M12 21s6.5-5.6 6.5-10.3A6.5 6.5 0 0 0 5.5 10.7C5.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.4"/>',
-    relogio:'<circle cx="12" cy="12" r="8.6"/><path d="M12 7v5.3l3.3 2"/>',
-    chat:   '<path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l.9-4.4A8 8 0 1 1 20 12Z"/>',
-    moto:   '<circle cx="5.5" cy="17" r="3"/><circle cx="18.5" cy="17" r="3"/><path d="M8.5 17h7l-4-7H8m6.5 7 3-9h2"/>',
-    bussola:'<circle cx="12" cy="12" r="8.6"/><path d="m15 9-2 4.5L8.5 15 10.5 10 15 9Z"/>',
-    seta:   '<path d="M5 12h14m-6-6 6 6-6 6"/>'
+    pin:    '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+    relogio:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    chat:   '<path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/>',
+    moto:   '<path d="m18 14-1-3"/><path d="m3 9 6 2a2 2 0 0 1 2-2h2a2 2 0 0 1 1.99 1.81"/><path d="M8 17h3a1 1 0 0 0 1-1 6 6 0 0 1 6-6 1 1 0 0 0 1-1v-.75A5 5 0 0 0 17 5"/><circle cx="19" cy="17" r="3"/><circle cx="5" cy="17" r="3"/>',
+    bussola:'<circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/>',
+    seta:   '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>'
   };
   const icone = (n) => '<svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
     'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
     ICO[n] + '</svg>';
+
+  // Miolo do botão de preenchimento: a mesma estrutura dos botões das páginas
+  const SETA_BTN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+    'stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>';
+  const miolo = (t) => '<span class="btn-txt">' + t + '</span><span class="btn-fundo" aria-hidden="true"></span>' +
+    '<span class="btn-txt btn-txt--fundo" aria-hidden="true">' + t + '</span><span class="btn-icone" aria-hidden="true">' +
+    SETA_BTN.replace('<svg', '<svg class="btn-icone__sai"') + SETA_BTN.replace('<svg', '<svg class="btn-icone__entra"') + '</span>';
 
   // Escapa tudo que vai para innerHTML — inclusive o termo digitado pelo usuário
   // e a resposta do ViaCEP.
@@ -91,9 +98,9 @@
   function cardUnidade(u) {
     const acoes = [];
     if (u.whatsapp) acoes.push('<a class="btn btn--primario btn--pequeno" href="https://wa.me/' +
-      encodeURIComponent(u.whatsapp) + '" target="_blank" rel="noopener">Pedir no WhatsApp</a>');
+      encodeURIComponent(u.whatsapp) + '" target="_blank" rel="noopener">' + miolo('Pedir no WhatsApp') + '</a>');
     if (u.ifood) acoes.push('<a class="btn btn--secundario btn--pequeno" href="' + esc(u.ifood) +
-      '" target="_blank" rel="noopener">Pedir no iFood</a>');
+      '" target="_blank" rel="noopener">' + miolo('Pedir no iFood') + '</a>');
     if (u.maps) acoes.push('<a class="link-seta" href="' + esc(u.maps) +
       '" target="_blank" rel="noopener">Como chegar ' + icone('seta') + '</a>');
 
@@ -256,13 +263,52 @@
     );
   }
 
-  /* ---------- 9. INICIALIZAÇÃO ---------- */
+  /* ---------- 9. VALIDAÇÃO DA BUSCA ---------- */
+  let tentativaDeEnvio = false;
+
+  function validarBusca() {
+    if (!input) return false;
+    const valor = input.value.trim();
+    const somenteDigitosEPontuacao = /^[\d.\s-]+$/.test(valor);
+    const digitos = valor.replace(/\D/g, '');
+    let mensagem = '';
+
+    if (!valor) mensagem = 'Digite uma cidade, estado ou CEP para continuar.';
+    else if (valor.length < 2) mensagem = 'Digite pelo menos 2 caracteres para realizar a busca.';
+    else if (somenteDigitosEPontuacao && digitos.length !== 8) mensagem = 'Digite um CEP completo com 8 números.';
+
+    input.value = valor;
+    input.setCustomValidity(mensagem);
+    input.setAttribute('aria-invalid', String(Boolean(mensagem)));
+    if (mensagem) {
+      aviso(mensagem, 'erro');
+      input.focus();
+      return false;
+    }
+    aviso('');
+    return true;
+  }
+
+  if (input) {
+    input.addEventListener('input', () => {
+      input.setCustomValidity('');
+      input.setAttribute('aria-invalid', 'false');
+      if (tentativaDeEnvio) validarBusca();
+    });
+    input.addEventListener('paste', () => {
+      requestAnimationFrame(() => { if (tentativaDeEnvio) validarBusca(); });
+    });
+  }
+
+  /* ---------- 10. INICIALIZAÇÃO ---------- */
   montarMapa();
   mostrar(UNIDADES, 'Todas as unidades');
 
   if (form) form.addEventListener('submit', (e) => {
     e.preventDefault();
-    buscar(input ? input.value : '');
+    tentativaDeEnvio = true;
+    if (!validarBusca()) return;
+    buscar(input.value);
   });
   if (btnGeo) btnGeo.addEventListener('click', usarMinhaLocalizacao);
 

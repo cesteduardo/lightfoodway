@@ -24,340 +24,218 @@
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://viacep.com.br">
-<link rel="stylesheet" href="assets/css/style.min.css">
+<link rel="stylesheet" href="assets/css/style.min.css?v=2026-09-15-footer-clean">
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 <body>
 <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="header" data-header>
-  <div class="container">
-    <div class="header__pill">
-      <a class="logo" href="index.html" aria-label="Light Food Way — página inicial">
-        <img class="logo__img" src="assets/img/logo-lightfoodway.webp" alt="Light Food Way" width="532" height="219">
-      </a>
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html" aria-label="Light Food Way — página inicial">
+      <img class="logo__img" src="assets/img/logo-lightfoodway.webp" alt="Light Food Way" width="532" height="219">
+    </a>
 
-      <nav class="nav" id="menu" data-nav aria-label="Menu principal">
-        <ul class="nav__lista">
-          <li><a class="nav__link" href="index.html" aria-current="page">Início</a></li>
-          <li><a class="nav__link" href="nossas-linhas.html">Nossas Linhas</a></li>
-          <li><a class="nav__link" href="como-funciona.html">Como Funciona</a></li>
-          <li><a class="nav__link" href="unidades.html">Encontre uma Unidade</a></li>
-          <li><a class="nav__link" href="sobre.html">Sobre a LFW</a></li>
-          <li><a class="nav__link" href="faq.html">Dúvidas Frequentes</a></li>
-        </ul>
-        <div class="nav__ctas">
-          <a class="btn btn--primario btn--bloco" href="unidades.html">Encontre uma unidade</a>
-          <a class="btn btn--secundario btn--bloco" href="unidades.html#pedido">Faça seu pedido</a>
-        </div>
-      </nav>
+    <nav class="desktop-nav" aria-label="Menu principal">
+      <a href="index.html" aria-current="page">Início</a>
+      <a href="nossas-linhas.html">Nossas Linhas</a>
+      <a href="como-funciona.html">Como Funciona</a>
+      <a href="unidades.html">Encontre uma Unidade</a>
+      <a href="sobre.html">Sobre a LFW</a>
+      <a href="faq.html">Dúvidas Frequentes</a>
+    </nav>
 
-      <div class="header__ctas">
-        <a class="btn btn--texto" href="unidades.html#pedido">Faça seu pedido</a>
-        <a class="btn btn--primario btn--pequeno" href="unidades.html">Encontre uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <button class="menu-toggle" data-menu-toggle type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-          <span></span>
-        </button>
-      </div>
-    </div>
+    <a class="contact-pill" href="unidades.html">Encontre uma unidade
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+    </a>
+
+    <button class="menu-btn" data-menu-toggle type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <span class="menu-btn__linhas" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
   </div>
+
+  <!-- Menu de tela cheia: aparece quando os links não cabem na barra -->
+  <nav class="mobile-nav" id="menu" data-nav aria-label="Menu">
+    <ul class="mobile-nav__lista">
+      <li><a href="index.html" aria-current="page"><span class="mobile-nav__n" aria-hidden="true">01</span><span class="mobile-nav__txt">Início</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="nossas-linhas.html"><span class="mobile-nav__n" aria-hidden="true">02</span><span class="mobile-nav__txt">Nossas Linhas</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="como-funciona.html"><span class="mobile-nav__n" aria-hidden="true">03</span><span class="mobile-nav__txt">Como Funciona</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="unidades.html"><span class="mobile-nav__n" aria-hidden="true">04</span><span class="mobile-nav__txt">Encontre uma Unidade</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="sobre.html"><span class="mobile-nav__n" aria-hidden="true">05</span><span class="mobile-nav__txt">Sobre a LFW</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="faq.html"><span class="mobile-nav__n" aria-hidden="true">06</span><span class="mobile-nav__txt">Dúvidas Frequentes</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+    </ul>
+    <div class="mobile-nav__base">
+      <a class="btn btn--primario" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+      <a class="btn btn--fantasma" href="unidades.html#pedido"><span class="btn-txt">Faça seu pedido</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Faça seu pedido</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+    </div>
+  </nav>
 </header>
 <main id="conteudo">
 
-  <section class="hero" data-carrossel tabindex="-1" aria-roledescription="carrossel" aria-label="Destaques Light Food Way">
-    <div class="hero__viewport">
-      <div class="slide is-ativo" data-slide role="group" aria-roledescription="slide" aria-hidden="false" aria-label="Banner 1 de 4">
-        <div class="slide__fundo" style="background-image:url('assets/img/banners/hero-mesa.webp')"></div>
-        <div class="container slide__conteudo">
-          <h1 class="slide__titulo">Comida de verdade para deixar sua rotina <em>mais leve.</em></h1>
-          <p class="slide__texto">Refeições práticas, saborosas e ultracongeladas para você ter mais facilidade no dia a dia, sem abrir mão da qualidade.</p>
-          <ul class="selos">
-            <li class="selo">Zero lactose</li>
-            <li class="selo">Sem glúten</li>
-            <li class="selo">Sem conservantes</li>
-            <li class="selo">Ultracongelados</li>
-          </ul>
-          <div class="acoes">
-            <a class="btn btn--primario btn--grande" href="unidades.html">Encontre uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-            <a class="btn btn--fantasma btn--grande" href="nossas-linhas.html">Conheça nossas linhas</a>
-          </div>
-        </div>
+  <section class="home-hero" aria-labelledby="home-hero-title">
+    <div class="container home-hero__content">
+      <h1 id="home-hero-title"><span class="home-hero__mask"><span class="home-hero__rise">Comida de verdade para deixar</span></span> <span class="home-hero__mask"><span class="home-hero__rise">sua rotina <em>mais leve</em></span></span></h1>
+      <p class="home-hero__intro" id="home-hero-descricao">Refeições práticas, saborosas e ultracongeladas para você ter mais facilidade no dia a dia, sem abrir mão da qualidade.</p>
+      <div class="acoes">
+        <a class="btn btn--primario btn--grande" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="btn btn--fantasma btn--grande" href="#linhas"><span class="btn-txt">Conheça nossas linhas</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Conheça nossas linhas</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
       </div>
-      <div class="slide" data-slide role="group" aria-roledescription="slide" aria-hidden="true" aria-label="Banner 2 de 4">
-        <div class="slide__fundo" data-bg="assets/img/banners/hero-mesa.webp"></div>
-        <div class="container slide__conteudo">
-          <p class="slide__titulo">Não é apenas congelado. <em>É ultracongelado.</em></p>
-          <p class="slide__texto">Um processo diferente do congelamento convencional, pensado para preservar as características dos alimentos e levar mais praticidade para a sua rotina.</p>
-
-          <div class="acoes">
-            <a class="btn btn--primario btn--grande" href="como-funciona.html">Entenda o processo <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-            <a class="btn btn--fantasma btn--grande" href="unidades.html">Encontre uma unidade</a>
-          </div>
-        </div>
+      <div class="home-hero__pontos" role="group" aria-label="Selecionar destaque do hero" hidden>
+        <button class="home-hero__ponto is-ativo" type="button" aria-label="Mostrar destaque 1: Comida de verdade para deixar sua rotina mais leve" aria-controls="home-hero-title" aria-pressed="true" data-home-hero-ponto="0"></button>
+        <button class="home-hero__ponto" type="button" aria-label="Mostrar destaque 2: Não é apenas congelado, é ultracongelado" aria-controls="home-hero-title" aria-pressed="false" data-home-hero-ponto="1"></button>
+        <button class="home-hero__ponto" type="button" aria-label="Mostrar destaque 3: Um sabor para cada momento" aria-controls="home-hero-title" aria-pressed="false" data-home-hero-ponto="2"></button>
+        <button class="home-hero__ponto" type="button" aria-label="Mostrar destaque 4: Tem uma Light Food Way perto de você" aria-controls="home-hero-title" aria-pressed="false" data-home-hero-ponto="3"></button>
       </div>
-      <div class="slide" data-slide role="group" aria-roledescription="slide" aria-hidden="true" aria-label="Banner 3 de 4">
-        <div class="slide__fundo" data-bg="assets/img/banners/hero-mesa.webp"></div>
-        <div class="container slide__conteudo">
-          <p class="slide__titulo">Um sabor para <em>cada momento.</em></p>
-          <p class="slide__texto">Caseirinhos, Frango, Bovina, Peixes, Massas, Maromba, Veggie, Sopas, Sucos, Salgados e Pizzas.</p>
-
-          <div class="acoes">
-            <a class="btn btn--primario btn--grande" href="nossas-linhas.html">Conheça nossas linhas <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-            <a class="btn btn--fantasma btn--grande" href="unidades.html">Encontre uma unidade</a>
-          </div>
-        </div>
-      </div>
-      <div class="slide" data-slide role="group" aria-roledescription="slide" aria-hidden="true" aria-label="Banner 4 de 4">
-        <div class="slide__fundo" data-bg="assets/img/banners/hero-mesa.webp"></div>
-        <div class="container slide__conteudo">
-          <p class="slide__titulo">Tem uma Light Food Way <em>perto de você.</em></p>
-          <p class="slide__texto">Encontre a unidade mais próxima, consulte o cardápio e faça seu pedido.</p>
-
-          <div class="acoes">
-            <a class="btn btn--primario btn--grande" href="unidades.html">Encontrar uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-            <a class="btn btn--fantasma btn--grande" href="como-funciona.html">Como funciona</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero__controles">
-      <button class="hero__seta" data-prev type="button" aria-label="Banner anterior"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
-      <span class="hero__contador" data-contador>1 / 4</span>
-      <button class="hero__seta" data-next type="button" aria-label="Próximo banner"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
-      <div class="hero__pontos" role="group" aria-label="Selecionar banner">
-        <button class="hero__ponto" data-ponto type="button" aria-label="Ir para o banner 1"></button>
-        <button class="hero__ponto" data-ponto type="button" aria-label="Ir para o banner 2"></button>
-        <button class="hero__ponto" data-ponto type="button" aria-label="Ir para o banner 3"></button>
-        <button class="hero__ponto" data-ponto type="button" aria-label="Ir para o banner 4"></button>
-      </div>
-    </div>
-    <div class="faixa" aria-hidden="true">
-    <div class="faixa__inner">
-      <span class="faixa__item">Zero lactose</span><span class="faixa__item">Sem glúten</span>
-      <span class="faixa__item">Sem conservantes</span><span class="faixa__item">Ultracongelados</span>
-      <span class="faixa__item">Praticidade</span><span class="faixa__item">Variedade</span>
-      <span class="faixa__item">Zero lactose</span><span class="faixa__item">Sem glúten</span>
-      <span class="faixa__item">Sem conservantes</span><span class="faixa__item">Ultracongelados</span>
-      <span class="faixa__item">Praticidade</span><span class="faixa__item">Variedade</span>
-    </div>
     </div>
   </section>
 
-  <!-- 2. DIFERENCIAIS -->
-  <section class="secao" id="diferenciais">
+  <section class="secao home-benefits" id="diferenciais">
     <div class="container">
       <div class="secao__head secao__head--centro">
-        <span class="tag">Nossos diferenciais</span>
-        <h2>Praticidade começa na forma como <em>a comida é feita.</em></h2>
-        <p class="secao__sub">Na Light Food Way, cuidamos de cada etapa para entregar uma experiência que une praticidade, sabor e qualidade.</p>
+        <h2>Mais sabor e praticidade <em>para a vida real</em></h2>
+        <p class="secao__sub">Escolhas para diferentes momentos, com a facilidade que a sua rotina pede.</p>
       </div>
-      <div class="bento">
-        <article class="card card--largo revela">
-          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.2c3 3.4 5 6.2 5 8.8a5 5 0 0 1-10 0c0-2.6 2-5.4 5-8.8Z"/><path d="M4.5 4.5 19 19"/></svg></span>
-          <h3>Zero lactose</h3>
-          <p>Nossos produtos são desenvolvidos sem lactose, oferecendo opções para quem busca uma alimentação sem esse componente.</p>
-        </article>
-        <article class="card revela">
-          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21V10"/><path d="M12 13c-2.2 0-3.6-1.6-3.6-3.6C10.6 9.4 12 11 12 13Z"/><path d="M12 13c2.2 0 3.6-1.6 3.6-3.6C13.4 9.4 12 11 12 13Z"/><path d="M12 9c-2.2 0-3.6-1.6-3.6-3.6C10.6 5.4 12 7 12 9Z"/><path d="M12 9c2.2 0 3.6-1.6 3.6-3.6C13.4 5.4 12 7 12 9Z"/><path d="M4.5 4.5 19.5 19.5"/></svg></span>
-          <h3>Sem glúten</h3>
-          <p>Nosso portfólio é produzido sem glúten, ampliando as possibilidades para diferentes necessidades alimentares.</p>
-        </article>
-        <article class="card revela">
-          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 9.5 4.1-1.9 7-5.3 7-9.5V6l-7-3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
-          <h3>Sem conservantes</h3>
-          <p>Nossos produtos não possuem conservantes adicionados.</p>
-        </article>
-        <article class="card revela">
-          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.5v19M3.5 7.2l17 9.6M20.5 7.2l-17 9.6"/><path d="m9.4 4.6 2.6 2.6 2.6-2.6M9.4 19.4l2.6-2.6 2.6 2.6"/></svg></span>
-          <h3>Ultracongelados</h3>
-          <p>Nossas refeições passam por um processo de ultracongelamento, diferente do congelamento convencional.</p>
-        </article>
-        <article class="card revela">
-          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.6"/><path d="M12 7v5.3l3.3 2"/></svg></span>
-          <h3>Praticidade</h3>
-          <p>Tenha refeições à disposição para facilitar sua rotina e economizar tempo.</p>
-        </article>
-        <article class="card revela">
-          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.2 11h17.6a8.8 8.8 0 0 1-17.6 0Z"/><path d="M12 3.2c-1 1.2-1 2.3 0 3.5M8.4 4.6c-.8 1-.8 1.8 0 2.8M15.6 4.6c.8 1 .8 1.8 0 2.8"/></svg></span>
-          <h3>Variedade</h3>
-          <p>Diversas linhas e sabores para você encontrar opções para diferentes momentos.</p>
-        </article>
+      <div class="home-benefits__grid">
+        <a class="home-benefit home-benefit--light" href="como-funciona.html">
+          <div class="home-benefit__copy">
+            <h3>Praticidade que cabe no seu dia</h3>
+            <p>Uma boa refeição pronta para quando a rotina aperta.</p>
+            <span class="home-benefit__link">Veja como funciona <span aria-hidden="true">↗</span></span>
+          </div>
+          <div class="home-benefit__media">
+            <img src="assets/img/linhas/oficial/caseirinhos-produto.jpg" alt="Caseirinho bovino da Light Food Way" width="663" height="592" loading="lazy">
+          </div>
+        </a>
+        <a class="home-benefit home-benefit--photo" href="nossas-linhas.html#maromba">
+          <img src="assets/img/linhas/oficial/maromba-produto.jpg" alt="Frango com purê de batata-doce da linha Maromba" width="1064" height="718" loading="lazy">
+          <div class="home-benefit__copy">
+            <h3>Comida de verdade, no seu tempo</h3>
+            <span class="home-benefit__link">Conheça as linhas <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+        <a class="home-benefit home-benefit--photo" href="nossas-linhas.html#veggie">
+          <img src="assets/img/linhas/oficial/veggie-produto.jpg" alt="Estrogonofe de grão-de-bico da linha Veggie" width="1064" height="718" loading="lazy">
+          <div class="home-benefit__copy">
+            <h3>Variedade para todos os gostos</h3>
+            <span class="home-benefit__link">Explore as opções <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- 3. APRESENTAÇÃO DA MARCA -->
-  <section class="secao secao--verde" id="apresentacao">
-    <div class="container container--narrow texto-centro">
-      <span class="tag">Quem somos</span>
-      <h2>Sua alimentação pode ser prática <em>sem abrir mão do sabor.</em></h2>
-      <p>A Light Food Way nasceu para tornar a alimentação mais prática para quem vive uma rotina cada vez mais corrida. Criamos refeições para quem quer ter comida de verdade à disposição sem precisar passar horas na cozinha.</p>
-      <p>São diferentes opções de pratos e linhas para acompanhar diferentes momentos, gostos e estilos de vida. Tudo com a praticidade de ter uma refeição pronta quando você precisar.</p>
-      <div class="acoes acoes--centro">
-        <a class="btn btn--primario" href="sobre.html">Conheça a Light Food Way <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. ULTRACONGELAMENTO -->
-
-  <section class="secao secao--escura" id="ultracongelamento">
-    <div class="container">
-      <div class="secao__head secao__head--centro">
-        <span class="tag">Nosso processo</span>
-        <h2>Não é apenas congelado.<br><em>É ultracongelado.</em></h2>
-        <p class="secao__sub">Um processo desenvolvido para preservar melhor as características dos alimentos e facilitar a sua rotina.</p>
-      </div>
-
-      <p class="texto-destaque">As refeições Light Food Way passam por um processo de ultracongelamento, no qual a temperatura do alimento é reduzida rapidamente. Esse processo é diferente do congelamento convencional e foi pensado para ajudar a preservar as características do produto, proporcionando praticidade sem abrir mão da experiência de uma boa refeição.</p>
-
-      <ol class="processo">
-        <li class="processo__etapa revela">
-          <span class="processo__num">1</span>
-          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 21h10M6.5 17h11l.6-6.2a3.6 3.6 0 1 0-4.3-4.4 3.6 3.6 0 0 0-3.6 0 3.6 3.6 0 1 0-4.3 4.4L6.5 17Z"/></svg></span>
-          <h3>Preparo</h3>
-          <p>As receitas são preparadas e porcionadas.</p>
-        </li>
-        <li class="processo__etapa revela">
-          <span class="processo__num">2</span>
-          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.5v19M3.5 7.2l17 9.6M20.5 7.2l-17 9.6"/><path d="m9.4 4.6 2.6 2.6 2.6-2.6M9.4 19.4l2.6-2.6 2.6 2.6"/></svg></span>
-          <h3>Ultracongelamento</h3>
-          <p>A temperatura do alimento é reduzida rapidamente.</p>
-        </li>
-        <li class="processo__etapa revela">
-          <span class="processo__num">3</span>
-          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 7.8 12 3.5l8.5 4.3v8.4L12 20.5l-8.5-4.3V7.8Z"/><path d="m3.5 7.8 8.5 4.4 8.5-4.4M12 12.2v8.3"/></svg></span>
-          <h3>Armazenamento</h3>
-          <p>O produto é mantido congelado até chegar até você.</p>
-        </li>
-        <li class="processo__etapa revela">
-          <span class="processo__num">4</span>
-          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.2 11h17.6a8.8 8.8 0 0 1-17.6 0Z"/><path d="M12 3.2c-1 1.2-1 2.3 0 3.5M8.4 4.6c-.8 1-.8 1.8 0 2.8M15.6 4.6c.8 1 .8 1.8 0 2.8"/></svg></span>
-          <h3>Sua refeição</h3>
-          <p>Pronta para quando você precisar, no seu tempo.</p>
-        </li>
-      </ol>
-
-      <div class="acoes acoes--centro">
-        <a class="btn btn--primario" href="nossas-linhas.html">Conheça nossas refeições <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="btn btn--fantasma" href="como-funciona.html">Entenda o processo</a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- 5. NOSSAS LINHAS -->
-  <section class="secao" id="linhas">
+  <!-- LINHAS EM DESTAQUE -->
+  <section class="secao secao--alt home-lines" id="linhas">
     <div class="container">
       <div class="secao__head secao__head--entre">
         <div>
-          <span class="tag">Nossas linhas</span>
-          <h2>Um cardápio para <em>todos os gostos.</em></h2>
+          <h2>Um cardápio para <em>todos os gostos</em></h2>
           <p class="secao__sub">Da comida caseira às opções para quem treina, encontre uma linha que combina com a sua rotina.</p>
         </div>
-        <a class="btn btn--secundario" href="nossas-linhas.html">Ver todas as linhas</a>
+        <a class="btn btn--secundario" href="nossas-linhas.html"><span class="btn-txt">Ver todas as linhas</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Ver todas as linhas</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
       </div>
       <div class="grid grid--4">
         <article class="linha-card revela" data-linha="caseirinhos" id="caseirinhos">
-          <a class="linha-card__link" href="nossas-linhas.html#caseirinhos">
+          <a class="linha-card__link" href="nossas-linhas.html#caseirinhos" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/caseirinhos.webp" alt="Linha Caseirinhos — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/oficial/caseirinhos-produto.jpg" alt="Linha Caseirinhos — Light Food Way" loading="lazy" width="663" height="592" data-foto>
               <span class="linha-card__etiqueta">Casa</span>
             </div>
             <div class="linha-card__corpo">
               <h3>Caseirinhos</h3>
               <p>O sabor daquela comida que lembra casa, agora com a praticidade que a sua rotina precisa.</p>
-              <span class="linha-card__cta">Conhecer Caseirinhos <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+              <span class="linha-card__cta">Conhecer Caseirinhos <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></span>
             </div>
           </a>
         </article>
         <article class="linha-card revela" data-linha="frango" id="frango">
-          <a class="linha-card__link" href="nossas-linhas.html#frango">
+          <a class="linha-card__link" href="nossas-linhas.html#frango" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/frango.webp" alt="Linha Frango — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/oficial/frango-produto.jpg" alt="Linha Frango — Light Food Way" loading="lazy" width="913" height="611" data-foto>
               <span class="linha-card__etiqueta">Aves</span>
             </div>
             <div class="linha-card__corpo">
               <h3>Frango</h3>
               <p>Opções com frango para deixar suas refeições práticas, saborosas e variadas.</p>
-              <span class="linha-card__cta">Conhecer linha Frango <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+              <span class="linha-card__cta">Conhecer linha Frango <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></span>
             </div>
           </a>
         </article>
         <article class="linha-card revela" data-linha="bovina" id="bovina">
-          <a class="linha-card__link" href="nossas-linhas.html#bovina">
+          <a class="linha-card__link" href="nossas-linhas.html#bovina" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/bovina.webp" alt="Linha Bovinas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/oficial/bovina-produto.jpg" alt="Linha Bovinas — Light Food Way" loading="lazy" width="913" height="611" data-foto>
               <span class="linha-card__etiqueta">Carnes</span>
             </div>
             <div class="linha-card__corpo">
               <h3>Bovinas</h3>
               <p>Pratos com carne bovina para quem gosta de refeições saborosas e cheias de opções.</p>
-              <span class="linha-card__cta">Conhecer linha Bovina <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+              <span class="linha-card__cta">Conhecer linha Bovina <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></span>
             </div>
           </a>
         </article>
         <article class="linha-card revela" data-linha="peixes" id="peixes">
-          <a class="linha-card__link" href="nossas-linhas.html#peixes">
+          <a class="linha-card__link" href="nossas-linhas.html#peixes" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/peixes.webp" alt="Linha Peixes — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/oficial/peixes-produto.jpg" alt="Linha Peixes — Light Food Way" loading="lazy" width="888" height="602" data-foto>
               <span class="linha-card__etiqueta">Do mar</span>
             </div>
             <div class="linha-card__corpo">
               <h3>Peixes</h3>
               <p>Opções com peixe para variar o cardápio com praticidade.</p>
-              <span class="linha-card__cta">Conhecer linha Peixe <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+              <span class="linha-card__cta">Conhecer linha Peixe <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></span>
             </div>
           </a>
         </article>
         <article class="linha-card revela" data-linha="massas" id="massas">
-          <a class="linha-card__link" href="nossas-linhas.html#massas">
+          <a class="linha-card__link" href="nossas-linhas.html#massas" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/massas.webp" alt="Linha Massas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/oficial/massas-produto.jpg" alt="Linha Massas — Light Food Way" loading="lazy" width="1043" height="707" data-foto>
               <span class="linha-card__etiqueta">Massas</span>
             </div>
             <div class="linha-card__corpo">
               <h3>Massas</h3>
               <p>Massas saborosas para transformar uma refeição prática em um momento ainda mais gostoso.</p>
-              <span class="linha-card__cta">Conhecer Massas <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+              <span class="linha-card__cta">Conhecer Massas <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></span>
             </div>
           </a>
         </article>
         <article class="linha-card revela" data-linha="maromba" id="maromba">
-          <a class="linha-card__link" href="nossas-linhas.html#maromba">
+          <a class="linha-card__link" href="nossas-linhas.html#maromba" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/maromba.webp" alt="Linha Maromba — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/oficial/maromba-produto.jpg" alt="Linha Maromba — Light Food Way" loading="lazy" width="1064" height="718" data-foto>
               <span class="linha-card__etiqueta">Treino</span>
             </div>
             <div class="linha-card__corpo">
               <h3>Maromba</h3>
               <p>Opções para quem treina, busca praticidade e quer facilitar a organização das refeições dentro da rotina.</p>
-              <span class="linha-card__cta">Conhecer linha Maromba <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+              <span class="linha-card__cta">Conhecer linha Maromba <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></span>
             </div>
           </a>
         </article>
         <article class="linha-card revela" data-linha="veggie" id="veggie">
-          <a class="linha-card__link" href="nossas-linhas.html#veggie">
+          <a class="linha-card__link" href="nossas-linhas.html#veggie" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/veggie.webp" alt="Linha Veggie — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/oficial/veggie-produto.jpg" alt="Linha Veggie — Light Food Way" loading="lazy" width="1064" height="718" data-foto>
               <span class="linha-card__etiqueta">Sem carne</span>
             </div>
             <div class="linha-card__corpo">
               <h3>Veggie</h3>
               <p>Opções sem carne para quem busca variedade e diferentes possibilidades para a alimentação.</p>
-              <span class="linha-card__cta">Conhecer linha Veggie <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+              <span class="linha-card__cta">Conhecer linha Veggie <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></span>
             </div>
           </a>
         </article>
         <article class="linha-card revela" data-linha="sopas" id="sopas">
-          <a class="linha-card__link" href="nossas-linhas.html#sopas">
+          <a class="linha-card__link" href="nossas-linhas.html#sopas" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/sopas.webp" alt="Linha Sopas — Light Food Way" loading="lazy" width="640" height="480" data-foto>
+              <img src="assets/img/linhas/oficial/sopas-produto.jpg" alt="Linha Sopas — Light Food Way" loading="lazy" width="697" height="564" data-foto>
               <span class="linha-card__etiqueta">Quentinho</span>
             </div>
             <div class="linha-card__corpo">
               <h3>Sopas</h3>
               <p>Uma opção prática e saborosa para aqueles dias em que tudo o que você quer é uma refeição quentinha.</p>
-              <span class="linha-card__cta">Conhecer Sopas <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+              <span class="linha-card__cta">Conhecer Sopas <span class="bolha-seta" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></span>
             </div>
           </a>
         </article>
@@ -365,45 +243,54 @@
     </div>
   </section>
 
-  <!-- 6. COMO FUNCIONA -->
+  <!-- COMO FUNCIONA -->
 
   <section class="secao" id="como-funciona">
     <div class="container">
       <div class="secao__head secao__head--centro">
-        <span class="tag">Como funciona</span>
-        <h2>Comer bem pode ser <em>simples.</em></h2>
+        <h2>Comer bem pode ser <em>simples</em></h2>
         <p class="secao__sub">Escolha suas refeições, encontre uma unidade e tenha a praticidade da Light Food Way na sua rotina.</p>
       </div>
       <ol class="passos">
-        <li class="passo revela"><span class="passo__num">1</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.2 11h17.6a8.8 8.8 0 0 1-17.6 0Z"/><path d="M12 3.2c-1 1.2-1 2.3 0 3.5M8.4 4.6c-.8 1-.8 1.8 0 2.8M15.6 4.6c.8 1 .8 1.8 0 2.8"/></svg></span><h3>Escolha</h3><p>Conheça nossas linhas e encontre suas opções favoritas.</p></li>
-        <li class="passo revela"><span class="passo__num">2</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 4.5-5.5 2v13L9 17.5l6 2 5.5-2v-13l-5.5 2-6-2Z"/><path d="M9 4.5v13M15 6.5v13"/></svg></span><h3>Encontre</h3><p>Use nosso mapa para localizar a Light Food Way mais próxima.</p></li>
-        <li class="passo revela"><span class="passo__num">3</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.5 2.5 5 13.5h6l-.5 8L19 10.5h-6l.5-8Z"/></svg></span><h3>Peça</h3><p>Consulte o cardápio e escolha o canal de pedido disponível na unidade.</p></li>
-        <li class="passo revela"><span class="passo__num">4</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8C19.5 15.3 12 20 12 20Z"/></svg></span><h3>Aproveite</h3><p>Receba ou retire seu pedido e tenha uma refeição prática e saborosa.</p></li>
+        <li class="passo revela"><span class="passo__num">1</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/><path d="m13 12 4-4"/><path d="M10.9 7.25A3.99 3.99 0 0 0 4 10c0 .73.2 1.41.54 2"/></svg></span><h3>Escolha</h3><p>Conheça nossas linhas e encontre suas opções favoritas.</p></li>
+        <li class="passo revela"><span class="passo__num">2</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/><circle cx="12" cy="8" r="2"/><path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/></svg></span><h3>Encontre</h3><p>Use nosso mapa para localizar a Light Food Way mais próxima.</p></li>
+        <li class="passo revela"><span class="passo__num">3</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg></span><h3>Peça</h3><p>Consulte o cardápio e escolha o canal de pedido disponível na unidade.</p></li>
+        <li class="passo revela"><span class="passo__num">4</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3V2"/><path d="m15.4 17.4 3.2-2.8a2 2 0 1 1 2.8 2.9l-3.6 3.3c-.7.8-1.7 1.2-2.8 1.2h-4c-1.1 0-2.1-.4-2.8-1.2l-1.302-1.464A1 1 0 0 0 6.151 19H5"/><path d="M2 14h12a2 2 0 0 1 0 4h-2"/><path d="M4 10h16"/><path d="M5 10a7 7 0 0 1 14 0"/><path d="M5 14v6a1 1 0 0 1-1 1H2"/></svg></span><h3>Aproveite</h3><p>Receba ou retire seu pedido e tenha uma refeição prática e saborosa.</p></li>
       </ol>
     </div>
   </section>
 
 
-  <!-- 7. ENCONTRE UMA UNIDADE -->
+  <section class="home-story" id="apresentacao" aria-labelledby="home-story-title">
+    <div class="home-story__copy">
+      <h2 id="home-story-title">Comida de verdade para <em>a vida real</em></h2>
+      <p>A Light Food Way nasceu para tornar a alimentação mais prática em uma rotina cada vez mais corrida. São refeições que unem sabor, variedade e a facilidade de ter uma boa escolha à disposição.</p>
+      <a class="btn btn--secundario" href="sobre.html"><span class="btn-txt">Conheça nossa história</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Conheça nossa história</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+    </div>
+    <div class="home-story__image">
+      <img src="assets/img/banners/hero-mesa.webp" alt="Pratos de refeições sobre uma mesa" width="1848" height="851" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ENCONTRE UMA UNIDADE -->
 
   <section class="secao secao--alt" id="unidades">
     <div class="container">
       <div class="secao__head">
-        <span class="tag">Encontre uma unidade</span>
-        <h2>Encontre uma Light Food Way <em>perto de você.</em></h2>
+        <h2>Encontre uma Light Food Way <em>perto de você</em></h2>
         <p class="secao__sub">São unidades em diferentes regiões do Brasil. Encontre a mais próxima, conheça a unidade e faça seu pedido.</p>
       </div>
 
-      <form class="busca" data-busca role="search">
+      <form class="busca" data-busca role="search" novalidate>
         <label class="sr-only" for="busca-unidade">Digite sua cidade, estado ou CEP</label>
         <div class="busca__campo">
-          <span class="busca__icone" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
-          <input id="busca-unidade" data-busca-input type="search" placeholder="Digite sua cidade, estado ou CEP" autocomplete="off">
+          <span class="busca__icone" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg></span>
+          <input id="busca-unidade" data-busca-input type="search" placeholder="Digite sua cidade, estado ou CEP" autocomplete="off" required minlength="2" maxlength="80" aria-describedby="busca-unidade-erro" aria-invalid="false">
         </div>
-        <button class="btn btn--primario" type="submit">Encontrar unidade</button>
-        <button class="btn btn--secundario" type="button" data-geo><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s6.5-5.6 6.5-10.3A6.5 6.5 0 0 0 5.5 10.7C5.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.4"/></svg> Usar minha localização</button>
+        <button class="btn btn--primario" type="submit"><span class="btn-txt">Encontrar unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontrar unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></button>
+        <button class="btn btn--secundario" type="button" data-geo><span class="btn-txt">Usar minha localização</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Usar minha localização</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></span></button>
       </form>
-      <p class="busca__status" data-busca-status role="status" aria-live="polite"></p>
+      <p class="busca__status" id="busca-unidade-erro" data-busca-status role="status" aria-live="polite"></p>
 
       <div class="unidades">
         <div class="mapa">
@@ -428,74 +315,15 @@
   </section>
 
 
-  <!-- 8. PARA CADA MOMENTO -->
-  <section class="secao">
-    <div class="container">
-      <div class="secao__head secao__head--centro">
-        <span class="tag">Para cada momento</span>
-        <h2>Comida de verdade para <em>a vida real.</em></h2>
-        <p class="secao__sub">A Light Food Way acompanha diferentes rotinas — do trabalho ao treino, do estudo ao jantar em casa.</p>
-      </div>
-      <div class="momentos">
-        <article class="momento revela"><span class="momento__num">01</span><span>O almoço no trabalho, sem correria.</span></article>
-        <article class="momento revela"><span class="momento__num">02</span><span>O jantar depois de um dia longo.</span></article>
-        <article class="momento revela"><span class="momento__num">03</span><span>A refeição de quem treina.</span></article>
-        <article class="momento revela"><span class="momento__num">04</span><span>A semana organizada no congelador.</span></article>
-        <article class="momento revela"><span class="momento__num">05</span><span>Aquele momento de comer algo diferente.</span></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. PROVA SOCIAL -->
-  <section class="secao secao--alt">
-    <div class="container">
-      <div class="secao__head secao__head--centro">
-        <span class="tag">Prova social</span>
-        <h2>Quem experimenta, <em>entende.</em></h2>
-        <p class="secao__sub">Avaliações de quem já colocou a Light Food Way na rotina.</p>
-      </div>
-      <div class="grid grid--3 grid--trio">
-        <article class="depoimento revela">
-          <div class="estrelas" role="img" aria-label="Avaliação 5 de 5"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg></div>
-          <blockquote><p>“Substituí o delivery da semana toda. O sabor é de comida caseira mesmo e eu resolvo o almoço em minutos.”</p></blockquote>
-          <div class="depoimento__autor"><span class="avatar" aria-hidden="true">MC</span><div><strong>Depoimento real — nome do cliente</strong><small>Cidade/UF</small></div></div>
-        </article>
-        <article class="depoimento revela">
-          <div class="estrelas" role="img" aria-label="Avaliação 5 de 5"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg></div>
-          <blockquote><p>“A variedade é o que mais me pegou. Dá para comer diferente todo dia sem enjoar e sem cozinhar.”</p></blockquote>
-          <div class="depoimento__autor"><span class="avatar" aria-hidden="true">RS</span><div><strong>Depoimento real — nome do cliente</strong><small>Cidade/UF</small></div></div>
-        </article>
-        <article class="depoimento revela">
-          <div class="estrelas" role="img" aria-label="Avaliação 5 de 5"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg></div>
-          <blockquote><p>“Peço pelo WhatsApp da unidade aqui perto e já deixo a semana organizada. Praticidade de verdade.”</p></blockquote>
-          <div class="depoimento__autor"><span class="avatar" aria-hidden="true">JL</span><div><strong>Depoimento real — nome do cliente</strong><small>Cidade/UF</small></div></div>
-        </article>
-      </div>
-      <p class="nota">Substituir por avaliações e depoimentos reais de consumidores (nome, cidade, nota e texto), priorizando comentários sobre sabor, praticidade, variedade, qualidade e facilidade de pedir.</p>
-    </div>
-  </section>
-
-  <!-- 10. SOBRE A LFW -->
-  <section class="secao">
-    <div class="container container--narrow texto-centro">
-      <span class="tag">Sobre a LFW</span>
-      <h2>Muito mais do que <em>uma refeição.</em></h2>
-      <p>A Light Food Way nasceu com uma ideia simples: tornar a alimentação mais prática para a vida real. Criamos refeições que unem sabor, variedade e praticidade para acompanhar diferentes momentos da rotina.</p>
-      <p>Hoje, nossa marca está presente em diferentes regiões do Brasil, levando essa proposta para cada vez mais pessoas.</p>
-      <div class="acoes acoes--centro"><a class="btn btn--secundario" href="sobre.html">Conheça nossa história</a></div>
-    </div>
-  </section>
-
-  <!-- 11. CTA FINAL -->
+  <!-- CTA FINAL -->
 
   <section class="secao cta-final">
     <div class="container">
-      <span class="tag">Bora começar?</span>
-      <h2>Sua próxima refeição pode ser <em>muito mais prática.</em></h2>
+      <h2>Sua próxima refeição pode ser <em>muito mais prática</em></h2>
       <p>Encontre uma Light Food Way perto de você e descubra suas próximas refeições favoritas.</p>
       <div class="acoes acoes--centro">
-        <a class="btn btn--primario btn--grande" href="unidades.html">Encontrar uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="btn btn--fantasma btn--grande" href="nossas-linhas.html">Conhecer nossas linhas</a>
+        <a class="btn btn--primario btn--grande" href="unidades.html"><span class="btn-txt">Encontrar uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontrar uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="btn btn--fantasma btn--grande" href="nossas-linhas.html"><span class="btn-txt">Conhecer nossas linhas</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Conhecer nossas linhas</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -544,8 +372,8 @@
         <h2 class="rodape__titulo">Institucional</h2>
         <ul class="rodape__lista">
           <li><a href="sobre.html">Sobre a LFW</a></li>
-          <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
-          <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+          <li><a href="#politica-de-privacidade" data-legal="privacidade">Política de Privacidade</a></li>
+          <li><a href="#termos-de-uso" data-legal="termos">Termos de Uso</a></li>
         </ul>
       </div>
     </div>
@@ -553,14 +381,14 @@
     <!-- Franquias: acesso secundário, apenas no rodapé (briefing, item 1) -->
     <div class="rodape__expansao">
       <span>Quer levar a Light Food Way para sua cidade? Conheça nossa oportunidade de franquia.</span>
-      <a class="link-seta link-seta--claro" href="expansao.html">Saiba mais sobre expansão <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      <a class="link-seta link-seta--claro" href="expansao.html">Saiba mais sobre expansão <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     </div>
 
     <div class="rodape__base">
       <p>© <span data-ano>2026</span> Light Food Way. Todos os direitos reservados.</p>
       <ul>
-        <li><a href="politica-de-privacidade.html">Privacidade</a></li>
-        <li><a href="termos-de-uso.html">Termos</a></li>
+        <li><a href="#politica-de-privacidade" data-legal="privacidade">Privacidade</a></li>
+        <li><a href="#termos-de-uso" data-legal="termos">Termos</a></li>
       </ul>
       <a class="gr-credit" href="https://grbrands.com.br" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por GR Brands — abrir site"><span>Desenvolvido por</span><span class="gr-lockup"><img src="assets/img/grbrands-icon-white.svg" alt="" width="24" height="24"><strong>GR Brands<span class="gr-dot">.</span></strong></span></a>
     </div>
@@ -568,11 +396,13 @@
 </footer>
 
 <div class="cta-mobile">
-  <a class="btn btn--primario btn--bloco" href="unidades.html">Encontre uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+  <a class="btn btn--primario btn--bloco" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
 </div>
 
-<script src="assets/js/main.min.js" defer></script>
+<script src="assets/js/main.min.js?v=2026-09-15" defer></script>
+<script src="assets/js/linhas-modal.js?v=2026-09-15" defer></script>
+<script src="assets/js/hero-titulos.js?v=2026-09-15-titulos" defer></script>
 <script src="assets/js/mapa-brasil.min.js" defer></script>
-<script src="assets/js/unidades.min.js" defer></script>
+<script src="assets/js/unidades.min.js?v=2026-09-15" defer></script>
 </body>
 </html>

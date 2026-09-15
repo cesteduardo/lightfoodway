@@ -23,49 +23,58 @@
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://viacep.com.br">
-<link rel="stylesheet" href="assets/css/style.min.css">
+<link rel="stylesheet" href="assets/css/style.min.css?v=2026-09-15-footer-clean">
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 <body>
 <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="header" data-header>
-  <div class="container">
-    <div class="header__pill">
-      <a class="logo" href="index.html" aria-label="Light Food Way — página inicial">
-        <img class="logo__img" src="assets/img/logo-lightfoodway.webp" alt="Light Food Way" width="532" height="219">
-      </a>
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html" aria-label="Light Food Way — página inicial">
+      <img class="logo__img" src="assets/img/logo-lightfoodway.webp" alt="Light Food Way" width="532" height="219">
+    </a>
 
-      <nav class="nav" id="menu" data-nav aria-label="Menu principal">
-        <ul class="nav__lista">
-          <li><a class="nav__link" href="index.html">Início</a></li>
-          <li><a class="nav__link" href="nossas-linhas.html">Nossas Linhas</a></li>
-          <li><a class="nav__link" href="como-funciona.html">Como Funciona</a></li>
-          <li><a class="nav__link" href="unidades.html" aria-current="page">Encontre uma Unidade</a></li>
-          <li><a class="nav__link" href="sobre.html">Sobre a LFW</a></li>
-          <li><a class="nav__link" href="faq.html">Dúvidas Frequentes</a></li>
-        </ul>
-        <div class="nav__ctas">
-          <a class="btn btn--primario btn--bloco" href="unidades.html">Encontre uma unidade</a>
-          <a class="btn btn--secundario btn--bloco" href="unidades.html#pedido">Faça seu pedido</a>
-        </div>
-      </nav>
+    <nav class="desktop-nav" aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="nossas-linhas.html">Nossas Linhas</a>
+      <a href="como-funciona.html">Como Funciona</a>
+      <a href="unidades.html" aria-current="page">Encontre uma Unidade</a>
+      <a href="sobre.html">Sobre a LFW</a>
+      <a href="faq.html">Dúvidas Frequentes</a>
+    </nav>
 
-      <div class="header__ctas">
-        <a class="btn btn--texto" href="unidades.html#pedido">Faça seu pedido</a>
-        <a class="btn btn--primario btn--pequeno" href="unidades.html">Encontre uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <button class="menu-toggle" data-menu-toggle type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-          <span></span>
-        </button>
-      </div>
-    </div>
+    <a class="contact-pill" href="unidades.html">Encontre uma unidade
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+    </a>
+
+    <button class="menu-btn" data-menu-toggle type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <span class="menu-btn__linhas" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
   </div>
+
+  <!-- Menu de tela cheia: aparece quando os links não cabem na barra -->
+  <nav class="mobile-nav" id="menu" data-nav aria-label="Menu">
+    <ul class="mobile-nav__lista">
+      <li><a href="index.html"><span class="mobile-nav__n" aria-hidden="true">01</span><span class="mobile-nav__txt">Início</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="nossas-linhas.html"><span class="mobile-nav__n" aria-hidden="true">02</span><span class="mobile-nav__txt">Nossas Linhas</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="como-funciona.html"><span class="mobile-nav__n" aria-hidden="true">03</span><span class="mobile-nav__txt">Como Funciona</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="unidades.html" aria-current="page"><span class="mobile-nav__n" aria-hidden="true">04</span><span class="mobile-nav__txt">Encontre uma Unidade</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="sobre.html"><span class="mobile-nav__n" aria-hidden="true">05</span><span class="mobile-nav__txt">Sobre a LFW</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="faq.html"><span class="mobile-nav__n" aria-hidden="true">06</span><span class="mobile-nav__txt">Dúvidas Frequentes</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+    </ul>
+    <div class="mobile-nav__base">
+      <a class="btn btn--primario" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+      <a class="btn btn--fantasma" href="unidades.html#pedido"><span class="btn-txt">Faça seu pedido</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Faça seu pedido</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+    </div>
+  </nav>
 </header>
 <main id="conteudo">
 
   <section class="hero-pagina">
     <div class="container">
       <nav class="migalhas" aria-label="Você está aqui"><a href="index.html">Início</a> <span aria-hidden="true">›</span> Encontre uma Unidade</nav>
-      <h1>Encontre a Light Food Way <em>mais próxima de você.</em></h1>
+      <h1>Encontre a Light Food Way <em>mais próxima de você</em></h1>
       <p>Consulte nossas unidades, veja os canais de atendimento e encontre a melhor opção para fazer seu pedido.</p>
     </div>
   </section>
@@ -74,16 +83,16 @@
   <section class="secao secao--alt" id="unidades">
     <div class="container">
 
-      <form class="busca" data-busca role="search">
+      <form class="busca" data-busca role="search" novalidate>
         <label class="sr-only" for="busca-unidade">Digite sua cidade, estado ou CEP</label>
         <div class="busca__campo">
-          <span class="busca__icone" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
-          <input id="busca-unidade" data-busca-input type="search" placeholder="Digite sua cidade, estado ou CEP" autocomplete="off">
+          <span class="busca__icone" aria-hidden="true"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg></span>
+          <input id="busca-unidade" data-busca-input type="search" placeholder="Digite sua cidade, estado ou CEP" autocomplete="off" required minlength="2" maxlength="80" aria-describedby="busca-unidade-erro" aria-invalid="false">
         </div>
-        <button class="btn btn--primario" type="submit">Encontrar unidade</button>
-        <button class="btn btn--secundario" type="button" data-geo><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s6.5-5.6 6.5-10.3A6.5 6.5 0 0 0 5.5 10.7C5.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.4"/></svg> Usar minha localização</button>
+        <button class="btn btn--primario" type="submit"><span class="btn-txt">Encontrar unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontrar unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></button>
+        <button class="btn btn--secundario" type="button" data-geo><span class="btn-txt">Usar minha localização</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Usar minha localização</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></span></button>
       </form>
-      <p class="busca__status" data-busca-status role="status" aria-live="polite"></p>
+      <p class="busca__status" id="busca-unidade-erro" data-busca-status role="status" aria-live="polite"></p>
 
       <div class="unidades">
         <div class="mapa">
@@ -111,23 +120,21 @@
   <section class="secao secao--compacta">
     <div class="container">
       <div class="grid grid--3 grid--trio">
-        <article class="card"><span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 4.5-5.5 2v13L9 17.5l6 2 5.5-2v-13l-5.5 2-6-2Z"/><path d="M9 4.5v13M15 6.5v13"/></svg></span><h3>Pelo mapa</h3><p>Clique no estado para ver as cidades e unidades disponíveis.</p></article>
-        <article class="card"><span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s6.5-5.6 6.5-10.3A6.5 6.5 0 0 0 5.5 10.7C5.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.4"/></svg></span><h3>Minha localização</h3><p>Autorize o acesso à localização e veja as unidades mais próximas de você.</p></article>
-        <article class="card"><span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span><h3>Cidade ou CEP</h3><p>Digite sua cidade, estado ou CEP para encontrar a unidade certa.</p></article>
+        <article class="card"><span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><h3>Pelo mapa</h3><p>Clique no estado para ver as cidades e unidades disponíveis.</p></article>
+        <article class="card"><span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Minha localização</h3><p>Autorize o acesso à localização e veja as unidades mais próximas de você.</p></article>
+        <article class="card"><span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg></span><h3>Cidade ou CEP</h3><p>Digite sua cidade, estado ou CEP para encontrar a unidade certa.</p></article>
       </div>
-      <p class="nota">A base de unidades fica em <code>assets/js/unidades.min.js</code>. Substituir os registros de exemplo pelos dados reais da rede (endereço, horário, WhatsApp, iFood e coordenadas).</p>
     </div>
   </section>
 
 
   <section class="secao cta-final">
     <div class="container">
-      <span class="tag">Bora começar?</span>
-      <h2>Sua próxima refeição pode ser <em>muito mais prática.</em></h2>
+      <h2>Sua próxima refeição pode ser <em>muito mais prática</em></h2>
       <p>Encontre uma Light Food Way perto de você e descubra suas próximas refeições favoritas.</p>
       <div class="acoes acoes--centro">
-        <a class="btn btn--primario btn--grande" href="unidades.html">Encontrar uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="btn btn--fantasma btn--grande" href="nossas-linhas.html">Conhecer nossas linhas</a>
+        <a class="btn btn--primario btn--grande" href="unidades.html"><span class="btn-txt">Encontrar uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontrar uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="btn btn--fantasma btn--grande" href="nossas-linhas.html"><span class="btn-txt">Conhecer nossas linhas</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Conhecer nossas linhas</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -176,8 +183,8 @@
         <h2 class="rodape__titulo">Institucional</h2>
         <ul class="rodape__lista">
           <li><a href="sobre.html">Sobre a LFW</a></li>
-          <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
-          <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+          <li><a href="#politica-de-privacidade" data-legal="privacidade">Política de Privacidade</a></li>
+          <li><a href="#termos-de-uso" data-legal="termos">Termos de Uso</a></li>
         </ul>
       </div>
     </div>
@@ -185,14 +192,14 @@
     <!-- Franquias: acesso secundário, apenas no rodapé (briefing, item 1) -->
     <div class="rodape__expansao">
       <span>Quer levar a Light Food Way para sua cidade? Conheça nossa oportunidade de franquia.</span>
-      <a class="link-seta link-seta--claro" href="expansao.html">Saiba mais sobre expansão <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      <a class="link-seta link-seta--claro" href="expansao.html">Saiba mais sobre expansão <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     </div>
 
     <div class="rodape__base">
       <p>© <span data-ano>2026</span> Light Food Way. Todos os direitos reservados.</p>
       <ul>
-        <li><a href="politica-de-privacidade.html">Privacidade</a></li>
-        <li><a href="termos-de-uso.html">Termos</a></li>
+        <li><a href="#politica-de-privacidade" data-legal="privacidade">Privacidade</a></li>
+        <li><a href="#termos-de-uso" data-legal="termos">Termos</a></li>
       </ul>
       <a class="gr-credit" href="https://grbrands.com.br" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por GR Brands — abrir site"><span>Desenvolvido por</span><span class="gr-lockup"><img src="assets/img/grbrands-icon-white.svg" alt="" width="24" height="24"><strong>GR Brands<span class="gr-dot">.</span></strong></span></a>
     </div>
@@ -200,11 +207,11 @@
 </footer>
 
 <div class="cta-mobile">
-  <a class="btn btn--primario btn--bloco" href="unidades.html">Encontre uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+  <a class="btn btn--primario btn--bloco" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
 </div>
 
-<script src="assets/js/main.min.js" defer></script>
+<script src="assets/js/main.min.js?v=2026-09-15" defer></script>
 <script src="assets/js/mapa-brasil.min.js" defer></script>
-<script src="assets/js/unidades.min.js" defer></script>
+<script src="assets/js/unidades.min.js?v=2026-09-15" defer></script>
 </body>
 </html>

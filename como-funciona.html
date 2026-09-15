@@ -22,49 +22,58 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.min.css">
+<link rel="stylesheet" href="assets/css/style.min.css?v=2026-09-15-footer-clean">
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 <body>
 <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="header" data-header>
-  <div class="container">
-    <div class="header__pill">
-      <a class="logo" href="index.html" aria-label="Light Food Way — página inicial">
-        <img class="logo__img" src="assets/img/logo-lightfoodway.webp" alt="Light Food Way" width="532" height="219">
-      </a>
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html" aria-label="Light Food Way — página inicial">
+      <img class="logo__img" src="assets/img/logo-lightfoodway.webp" alt="Light Food Way" width="532" height="219">
+    </a>
 
-      <nav class="nav" id="menu" data-nav aria-label="Menu principal">
-        <ul class="nav__lista">
-          <li><a class="nav__link" href="index.html">Início</a></li>
-          <li><a class="nav__link" href="nossas-linhas.html">Nossas Linhas</a></li>
-          <li><a class="nav__link" href="como-funciona.html" aria-current="page">Como Funciona</a></li>
-          <li><a class="nav__link" href="unidades.html">Encontre uma Unidade</a></li>
-          <li><a class="nav__link" href="sobre.html">Sobre a LFW</a></li>
-          <li><a class="nav__link" href="faq.html">Dúvidas Frequentes</a></li>
-        </ul>
-        <div class="nav__ctas">
-          <a class="btn btn--primario btn--bloco" href="unidades.html">Encontre uma unidade</a>
-          <a class="btn btn--secundario btn--bloco" href="unidades.html#pedido">Faça seu pedido</a>
-        </div>
-      </nav>
+    <nav class="desktop-nav" aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="nossas-linhas.html">Nossas Linhas</a>
+      <a href="como-funciona.html" aria-current="page">Como Funciona</a>
+      <a href="unidades.html">Encontre uma Unidade</a>
+      <a href="sobre.html">Sobre a LFW</a>
+      <a href="faq.html">Dúvidas Frequentes</a>
+    </nav>
 
-      <div class="header__ctas">
-        <a class="btn btn--texto" href="unidades.html#pedido">Faça seu pedido</a>
-        <a class="btn btn--primario btn--pequeno" href="unidades.html">Encontre uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <button class="menu-toggle" data-menu-toggle type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-          <span></span>
-        </button>
-      </div>
-    </div>
+    <a class="contact-pill" href="unidades.html">Encontre uma unidade
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+    </a>
+
+    <button class="menu-btn" data-menu-toggle type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <span class="menu-btn__linhas" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
   </div>
+
+  <!-- Menu de tela cheia: aparece quando os links não cabem na barra -->
+  <nav class="mobile-nav" id="menu" data-nav aria-label="Menu">
+    <ul class="mobile-nav__lista">
+      <li><a href="index.html"><span class="mobile-nav__n" aria-hidden="true">01</span><span class="mobile-nav__txt">Início</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="nossas-linhas.html"><span class="mobile-nav__n" aria-hidden="true">02</span><span class="mobile-nav__txt">Nossas Linhas</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="como-funciona.html" aria-current="page"><span class="mobile-nav__n" aria-hidden="true">03</span><span class="mobile-nav__txt">Como Funciona</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="unidades.html"><span class="mobile-nav__n" aria-hidden="true">04</span><span class="mobile-nav__txt">Encontre uma Unidade</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="sobre.html"><span class="mobile-nav__n" aria-hidden="true">05</span><span class="mobile-nav__txt">Sobre a LFW</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+      <li><a href="faq.html"><span class="mobile-nav__n" aria-hidden="true">06</span><span class="mobile-nav__txt">Dúvidas Frequentes</span><span class="mobile-nav__seta" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a></li>
+    </ul>
+    <div class="mobile-nav__base">
+      <a class="btn btn--primario" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+      <a class="btn btn--fantasma" href="unidades.html#pedido"><span class="btn-txt">Faça seu pedido</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Faça seu pedido</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+    </div>
+  </nav>
 </header>
 <main id="conteudo">
 
   <section class="hero-pagina">
     <div class="container">
       <nav class="migalhas" aria-label="Você está aqui"><a href="index.html">Início</a> <span aria-hidden="true">›</span> Como Funciona</nav>
-      <h1>Comer bem pode ser <em>simples.</em></h1>
+      <h1>Comer bem pode ser <em>simples</em></h1>
       <p>Entenda o processo de ultracongelamento e veja como a Light Food Way chega até a sua rotina.</p>
     </div>
   </section>
@@ -73,15 +82,14 @@
   <section class="secao" id="como-funciona">
     <div class="container">
       <div class="secao__head secao__head--centro">
-        <span class="tag">Como funciona</span>
-        <h2>Comer bem pode ser <em>simples.</em></h2>
+        <h2>Comer bem pode ser <em>simples</em></h2>
         <p class="secao__sub">Escolha suas refeições, encontre uma unidade e tenha a praticidade da Light Food Way na sua rotina.</p>
       </div>
       <ol class="passos">
-        <li class="passo revela"><span class="passo__num">1</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.2 11h17.6a8.8 8.8 0 0 1-17.6 0Z"/><path d="M12 3.2c-1 1.2-1 2.3 0 3.5M8.4 4.6c-.8 1-.8 1.8 0 2.8M15.6 4.6c.8 1 .8 1.8 0 2.8"/></svg></span><h3>Escolha</h3><p>Conheça nossas linhas e encontre suas opções favoritas.</p></li>
-        <li class="passo revela"><span class="passo__num">2</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 4.5-5.5 2v13L9 17.5l6 2 5.5-2v-13l-5.5 2-6-2Z"/><path d="M9 4.5v13M15 6.5v13"/></svg></span><h3>Encontre</h3><p>Use nosso mapa para localizar a Light Food Way mais próxima.</p></li>
-        <li class="passo revela"><span class="passo__num">3</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.5 2.5 5 13.5h6l-.5 8L19 10.5h-6l.5-8Z"/></svg></span><h3>Peça</h3><p>Consulte o cardápio e escolha o canal de pedido disponível na unidade.</p></li>
-        <li class="passo revela"><span class="passo__num">4</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8C19.5 15.3 12 20 12 20Z"/></svg></span><h3>Aproveite</h3><p>Receba ou retire seu pedido e tenha uma refeição prática e saborosa.</p></li>
+        <li class="passo revela"><span class="passo__num">1</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/><path d="m13 12 4-4"/><path d="M10.9 7.25A3.99 3.99 0 0 0 4 10c0 .73.2 1.41.54 2"/></svg></span><h3>Escolha</h3><p>Conheça nossas linhas e encontre suas opções favoritas.</p></li>
+        <li class="passo revela"><span class="passo__num">2</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/><circle cx="12" cy="8" r="2"/><path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/></svg></span><h3>Encontre</h3><p>Use nosso mapa para localizar a Light Food Way mais próxima.</p></li>
+        <li class="passo revela"><span class="passo__num">3</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg></span><h3>Peça</h3><p>Consulte o cardápio e escolha o canal de pedido disponível na unidade.</p></li>
+        <li class="passo revela"><span class="passo__num">4</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3V2"/><path d="m15.4 17.4 3.2-2.8a2 2 0 1 1 2.8 2.9l-3.6 3.3c-.7.8-1.7 1.2-2.8 1.2h-4c-1.1 0-2.1-.4-2.8-1.2l-1.302-1.464A1 1 0 0 0 6.151 19H5"/><path d="M2 14h12a2 2 0 0 1 0 4h-2"/><path d="M4 10h16"/><path d="M5 10a7 7 0 0 1 14 0"/><path d="M5 14v6a1 1 0 0 1-1 1H2"/></svg></span><h3>Aproveite</h3><p>Receba ou retire seu pedido e tenha uma refeição prática e saborosa.</p></li>
       </ol>
     </div>
   </section>
@@ -90,8 +98,7 @@
   <section class="secao secao--escura" id="ultracongelamento">
     <div class="container">
       <div class="secao__head secao__head--centro">
-        <span class="tag">Nosso processo</span>
-        <h2>Não é apenas congelado.<br><em>É ultracongelado.</em></h2>
+        <h2>Não é apenas congelado.<br><em>É ultracongelado</em></h2>
         <p class="secao__sub">Um processo desenvolvido para preservar melhor as características dos alimentos e facilitar a sua rotina.</p>
       </div>
 
@@ -100,32 +107,32 @@
       <ol class="processo">
         <li class="processo__etapa revela">
           <span class="processo__num">1</span>
-          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 21h10M6.5 17h11l.6-6.2a3.6 3.6 0 1 0-4.3-4.4 3.6 3.6 0 0 0-3.6 0 3.6 3.6 0 1 0-4.3 4.4L6.5 17Z"/></svg></span>
+          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg></span>
           <h3>Preparo</h3>
           <p>As receitas são preparadas e porcionadas.</p>
         </li>
         <li class="processo__etapa revela">
           <span class="processo__num">2</span>
-          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.5v19M3.5 7.2l17 9.6M20.5 7.2l-17 9.6"/><path d="m9.4 4.6 2.6 2.6 2.6-2.6M9.4 19.4l2.6-2.6 2.6 2.6"/></svg></span>
+          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m10 20-1.25-2.5L6 18"/><path d="M10 4 8.75 6.5 6 6"/><path d="m14 20 1.25-2.5L18 18"/><path d="m14 4 1.25 2.5L18 6"/><path d="m17 21-3-6h-4"/><path d="m17 3-3 6 1.5 3"/><path d="M2 12h6.5L10 9"/><path d="m20 10-1.5 2 1.5 2"/><path d="M22 12h-6.5L14 15"/><path d="m4 10 1.5 2L4 14"/><path d="m7 21 3-6-1.5-3"/><path d="m7 3 3 6h4"/></svg></span>
           <h3>Ultracongelamento</h3>
           <p>A temperatura do alimento é reduzida rapidamente.</p>
         </li>
         <li class="processo__etapa revela">
           <span class="processo__num">3</span>
-          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 7.8 12 3.5l8.5 4.3v8.4L12 20.5l-8.5-4.3V7.8Z"/><path d="m3.5 7.8 8.5 4.4 8.5-4.4M12 12.2v8.3"/></svg></span>
+          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/></svg></span>
           <h3>Armazenamento</h3>
           <p>O produto é mantido congelado até chegar até você.</p>
         </li>
         <li class="processo__etapa revela">
           <span class="processo__num">4</span>
-          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.2 11h17.6a8.8 8.8 0 0 1-17.6 0Z"/><path d="M12 3.2c-1 1.2-1 2.3 0 3.5M8.4 4.6c-.8 1-.8 1.8 0 2.8M15.6 4.6c.8 1 .8 1.8 0 2.8"/></svg></span>
+          <span class="processo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M7 21h10"/><path d="M19.5 12 22 6"/><path d="M16.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.73 1.62"/><path d="M11.25 3c.27.1.8.53.74 1.36-.05.83-.93 1.2-.98 2.02-.06.78.33 1.24.72 1.62"/><path d="M6.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.74 1.62"/></svg></span>
           <h3>Sua refeição</h3>
           <p>Pronta para quando você precisar, no seu tempo.</p>
         </li>
       </ol>
 
       <div class="acoes acoes--centro">
-        <a class="btn btn--primario" href="nossas-linhas.html">Conheça nossas refeições <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="btn btn--primario" href="nossas-linhas.html"><span class="btn-txt">Conheça nossas refeições</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Conheça nossas refeições</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -134,30 +141,27 @@
   <section class="secao secao--alt">
     <div class="container">
       <div class="secao__head secao__head--centro">
-        <span class="tag">Na prática</span>
-        <h2>Ultracongelado não é o mesmo <em>que congelado.</em></h2>
+        <h2>Ultracongelado não é o mesmo <em>que congelado</em></h2>
         <p class="secao__sub">A diferença está na velocidade em que a temperatura do alimento é reduzida.</p>
       </div>
       <div class="grid grid--2">
         <article class="card revela">
-          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.6"/><path d="M12 7v5.3l3.3 2"/></svg></span>
+          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg></span>
           <h3>Congelamento convencional</h3>
           <p>A redução de temperatura acontece de forma mais lenta, ao longo de horas.</p>
         </article>
         <article class="card card--marca revela">
-          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.5v19M3.5 7.2l17 9.6M20.5 7.2l-17 9.6"/><path d="m9.4 4.6 2.6 2.6 2.6-2.6M9.4 19.4l2.6-2.6 2.6 2.6"/></svg></span>
+          <span class="card__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m10 20-1.25-2.5L6 18"/><path d="M10 4 8.75 6.5 6 6"/><path d="m14 20 1.25-2.5L18 18"/><path d="m14 4 1.25 2.5L18 6"/><path d="m17 21-3-6h-4"/><path d="m17 3-3 6 1.5 3"/><path d="M2 12h6.5L10 9"/><path d="m20 10-1.5 2 1.5 2"/><path d="M22 12h-6.5L14 15"/><path d="m4 10 1.5 2L4 14"/><path d="m7 21 3-6-1.5-3"/><path d="m7 3 3 6h4"/></svg></span>
           <h3>Ultracongelamento</h3>
           <p>A temperatura do alimento é reduzida rapidamente, em um processo desenvolvido para ajudar a preservar as características do produto.</p>
         </article>
       </div>
-      <p class="nota">As afirmações sobre ultracongelamento, zero lactose, ausência de glúten e de conservantes devem ser revisadas e validadas pela área técnica/nutricional e pela documentação de rotulagem antes da publicação.</p>
     </div>
   </section>
 
   <section class="secao">
     <div class="container">
       <div class="secao__head secao__head--centro">
-        <span class="tag">Dúvidas rápidas</span>
         <h2>Ficou com <em>alguma dúvida?</em></h2>
       </div>
       <div class="faq" data-faq>
@@ -207,7 +211,7 @@
         </div>
       </div>
       <div class="acoes acoes--centro">
-        <a class="btn btn--secundario" href="faq.html">Ver todas as dúvidas</a>
+        <a class="btn btn--secundario" href="faq.html"><span class="btn-txt">Ver todas as dúvidas</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Ver todas as dúvidas</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -215,12 +219,11 @@
 
   <section class="secao cta-final">
     <div class="container">
-      <span class="tag">Bora começar?</span>
-      <h2>Sua próxima refeição pode ser <em>muito mais prática.</em></h2>
+      <h2>Sua próxima refeição pode ser <em>muito mais prática</em></h2>
       <p>Encontre uma Light Food Way perto de você e descubra suas próximas refeições favoritas.</p>
       <div class="acoes acoes--centro">
-        <a class="btn btn--primario btn--grande" href="unidades.html">Encontrar uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="btn btn--fantasma btn--grande" href="nossas-linhas.html">Conhecer nossas linhas</a>
+        <a class="btn btn--primario btn--grande" href="unidades.html"><span class="btn-txt">Encontrar uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontrar uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="btn btn--fantasma btn--grande" href="nossas-linhas.html"><span class="btn-txt">Conhecer nossas linhas</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Conhecer nossas linhas</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -269,8 +272,8 @@
         <h2 class="rodape__titulo">Institucional</h2>
         <ul class="rodape__lista">
           <li><a href="sobre.html">Sobre a LFW</a></li>
-          <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
-          <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+          <li><a href="#politica-de-privacidade" data-legal="privacidade">Política de Privacidade</a></li>
+          <li><a href="#termos-de-uso" data-legal="termos">Termos de Uso</a></li>
         </ul>
       </div>
     </div>
@@ -278,14 +281,14 @@
     <!-- Franquias: acesso secundário, apenas no rodapé (briefing, item 1) -->
     <div class="rodape__expansao">
       <span>Quer levar a Light Food Way para sua cidade? Conheça nossa oportunidade de franquia.</span>
-      <a class="link-seta link-seta--claro" href="expansao.html">Saiba mais sobre expansão <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      <a class="link-seta link-seta--claro" href="expansao.html">Saiba mais sobre expansão <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     </div>
 
     <div class="rodape__base">
       <p>© <span data-ano>2026</span> Light Food Way. Todos os direitos reservados.</p>
       <ul>
-        <li><a href="politica-de-privacidade.html">Privacidade</a></li>
-        <li><a href="termos-de-uso.html">Termos</a></li>
+        <li><a href="#politica-de-privacidade" data-legal="privacidade">Privacidade</a></li>
+        <li><a href="#termos-de-uso" data-legal="termos">Termos</a></li>
       </ul>
       <a class="gr-credit" href="https://grbrands.com.br" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por GR Brands — abrir site"><span>Desenvolvido por</span><span class="gr-lockup"><img src="assets/img/grbrands-icon-white.svg" alt="" width="24" height="24"><strong>GR Brands<span class="gr-dot">.</span></strong></span></a>
     </div>
@@ -293,9 +296,9 @@
 </footer>
 
 <div class="cta-mobile">
-  <a class="btn btn--primario btn--bloco" href="unidades.html">Encontre uma unidade <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+  <a class="btn btn--primario btn--bloco" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
 </div>
 
-<script src="assets/js/main.min.js" defer></script>
+<script src="assets/js/main.min.js?v=2026-09-15" defer></script>
 </body>
 </html>
