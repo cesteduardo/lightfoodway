@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");if((!("PageRevealEvent" in window)||location.protocol==="file:")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("transicao-js")</script>
 <title>Política de Privacidade — Light Food Way</title>
 <meta name="description" content="Como a Light Food Way trata os dados pessoais de quem navega no site.">
 <meta name="theme-color" content="#2B562C">
@@ -15,15 +15,21 @@
 <meta property="og:title" content="Política de Privacidade — Light Food Way">
 <meta property="og:description" content="Como a Light Food Way trata os dados pessoais de quem navega no site.">
 <meta property="og:url" content="https://www.lightfoodway.com.br/politica-de-privacidade.html">
-<meta property="og:image" content="https://www.lightfoodway.com.br/assets/img/og-lightfoodway.jpg">
+<meta property="og:image" content="https://www.lightfoodway.com.br/assets/img/og-lightfoodway.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Refeições Light Food Way prontas para levar">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 
+<link rel="icon" href="assets/img/favicon.ico" sizes="32x32">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.min.css?v=2026-09-15-footer-clean">
+<link rel="stylesheet" href="style.min.css?v=2026-09-22-performance">
+<link rel="stylesheet" href="page-transitions.min.css?v=2026-09-22">
 <script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 <body>
@@ -108,9 +114,11 @@
         </a>
         <p>Comida de verdade para deixar sua rotina mais leve. Refeições práticas, saborosas e ultracongeladas.</p>
         <div class="sociais">
-          <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram da Light Food Way">Instagram</a>
-          <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook da Light Food Way">Facebook</a>
-          <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok da Light Food Way">TikTok</a>
+          <a href="https://www.instagram.com/lightfoodway/" target="_blank" rel="noopener" aria-label="Instagram da Light Food Way">Instagram</a>
+          <a href="https://www.facebook.com/lightfoodway/?locale=pt_BR" target="_blank" rel="noopener" aria-label="Facebook da Light Food Way">Facebook</a>
+          <!-- TikTok: sem perfil oficial definido. Para reativar, troque a URL pelo perfil real e descomente.
+          <a href="https://www.tiktok.com/@lightfoodway" target="_blank" rel="noopener" aria-label="TikTok da Light Food Way">TikTok</a>
+          -->
         </div>
       </div>
 
@@ -158,7 +166,7 @@
         <li><a href="#politica-de-privacidade" data-legal="privacidade">Privacidade</a></li>
         <li><a href="#termos-de-uso" data-legal="termos">Termos</a></li>
       </ul>
-      <a class="gr-credit" href="https://grbrands.com.br" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por GR Brands — abrir site"><span>Desenvolvido por</span><span class="gr-lockup"><img src="assets/img/grbrands-icon-white.svg" alt="" width="24" height="24"><strong>GR Brands<span class="gr-dot">.</span></strong></span></a>
+      <a class="gr-credit" href="https://grbrands.com.br" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por GR Brands — abrir site"><span>Desenvolvido por</span><span class="gr-lockup"><img src="assets/img/grbrands-icon-white.svg" alt="" width="84" height="84"><strong>GR Brands<span class="gr-dot">.</span></strong></span></a>
     </div>
   </div>
 </footer>
@@ -167,6 +175,7 @@
   <a class="btn btn--primario btn--bloco" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
 </div>
 
-<script src="assets/js/main.min.js?v=2026-09-15" defer></script>
+<script src="main.min.js?v=2026-09-22" defer></script>
+<script src="page-transitions.min.js?v=2026-09-22" defer></script>
 </body>
 </html>

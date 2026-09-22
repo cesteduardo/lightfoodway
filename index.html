@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");if((!("PageRevealEvent" in window)||location.protocol==="file:")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("transicao-js")</script>
 <title>Light Food Way — Comida de verdade para deixar sua rotina mais leve</title>
 <meta name="description" content="Refeições práticas, saborosas e ultracongeladas. Zero lactose, sem glúten e sem conservantes. Encontre uma Light Food Way perto de você e faça seu pedido.">
 <meta name="theme-color" content="#2B562C">
@@ -14,17 +14,23 @@
 <meta property="og:title" content="Light Food Way — Comida de verdade para deixar sua rotina mais leve">
 <meta property="og:description" content="Refeições práticas, saborosas e ultracongeladas. Zero lactose, sem glúten e sem conservantes. Encontre uma Light Food Way perto de você e faça seu pedido.">
 <meta property="og:url" content="https://www.lightfoodway.com.br/">
-<meta property="og:image" content="https://www.lightfoodway.com.br/assets/img/og-lightfoodway.jpg">
+<meta property="og:image" content="https://www.lightfoodway.com.br/assets/img/og-lightfoodway.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Refeições Light Food Way prontas para levar">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 
+<link rel="icon" href="assets/img/favicon.ico" sizes="32x32">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" as="image" href="assets/img/banners/hero-mesa.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/banners/capa-site-mobile.webp" media="(max-width: 640px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/banners/capa-site.webp" media="(min-width: 641px)" fetchpriority="high">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://viacep.com.br">
-<link rel="stylesheet" href="assets/css/style.min.css?v=2026-09-15-footer-clean">
+<link rel="stylesheet" href="style.min.css?v=2026-09-22-performance">
+<link rel="stylesheet" href="page-transitions.min.css?v=2026-09-22">
 <script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 <body>
@@ -74,7 +80,7 @@
 
   <section class="home-hero" aria-labelledby="home-hero-title">
     <div class="container home-hero__content">
-      <h1 id="home-hero-title"><span class="home-hero__mask"><span class="home-hero__rise">Comida de verdade para deixar</span></span> <span class="home-hero__mask"><span class="home-hero__rise">sua rotina <em>mais leve</em></span></span></h1>
+      <h1 id="home-hero-title"><span class="home-hero__mask"><span class="home-hero__rise">Comida de verdade</span></span> <span class="home-hero__mask"><span class="home-hero__rise">para deixar sua</span></span> <span class="home-hero__mask"><span class="home-hero__rise">rotina <em>mais leve</em></span></span></h1>
       <p class="home-hero__intro" id="home-hero-descricao">Refeições práticas, saborosas e ultracongeladas para você ter mais facilidade no dia a dia, sem abrir mão da qualidade.</p>
       <div class="acoes">
         <a class="btn btn--primario btn--grande" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
@@ -103,18 +109,18 @@
             <span class="home-benefit__link">Veja como funciona <span aria-hidden="true">↗</span></span>
           </div>
           <div class="home-benefit__media">
-            <img src="assets/img/linhas/oficial/caseirinhos-produto.jpg" alt="Caseirinho bovino da Light Food Way" width="663" height="592" loading="lazy">
+            <img src="assets/img/linhas/caseirinhos.webp" srcset="assets/img/linhas/caseirinhos-900.webp 900w, assets/img/linhas/caseirinhos.webp 1280w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Frango caseirinho com mandioca — linha Caseirinhos da Light Food Way" width="1280" height="960" loading="lazy" decoding="async">
           </div>
         </a>
         <a class="home-benefit home-benefit--photo" href="nossas-linhas.html#maromba">
-          <img src="assets/img/linhas/oficial/maromba-produto.jpg" alt="Frango com purê de batata-doce da linha Maromba" width="1064" height="718" loading="lazy">
+          <img src="assets/img/linhas/maromba.webp" srcset="assets/img/linhas/maromba-900.webp 900w, assets/img/linhas/maromba.webp 1280w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Carne moída com purê de batata-doce — linha Maromba da Light Food Way" width="1280" height="960" loading="lazy" decoding="async">
           <div class="home-benefit__copy">
             <h3>Comida de verdade, no seu tempo</h3>
             <span class="home-benefit__link">Conheça as linhas <span aria-hidden="true">↗</span></span>
           </div>
         </a>
         <a class="home-benefit home-benefit--photo" href="nossas-linhas.html#veggie">
-          <img src="assets/img/linhas/oficial/veggie-produto.jpg" alt="Estrogonofe de grão-de-bico da linha Veggie" width="1064" height="718" loading="lazy">
+          <img src="assets/img/linhas/veggie.webp" srcset="assets/img/linhas/veggie-900.webp 900w, assets/img/linhas/veggie.webp 957w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Estrogonofe de grão-de-bico — linha Veggie da Light Food Way" width="957" height="718" loading="lazy" decoding="async">
           <div class="home-benefit__copy">
             <h3>Variedade para todos os gostos</h3>
             <span class="home-benefit__link">Explore as opções <span aria-hidden="true">↗</span></span>
@@ -138,7 +144,7 @@
         <article class="linha-card revela" data-linha="caseirinhos" id="caseirinhos">
           <a class="linha-card__link" href="nossas-linhas.html#caseirinhos" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/oficial/caseirinhos-produto.jpg" alt="Linha Caseirinhos — Light Food Way" loading="lazy" width="663" height="592" data-foto>
+              <img src="assets/img/linhas/caseirinhos.webp" srcset="assets/img/linhas/caseirinhos-900.webp 900w, assets/img/linhas/caseirinhos.webp 1280w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Frango caseirinho com mandioca — linha Caseirinhos da Light Food Way" loading="lazy" decoding="async" width="1280" height="960" data-foto>
               <span class="linha-card__etiqueta">Casa</span>
             </div>
             <div class="linha-card__corpo">
@@ -151,7 +157,7 @@
         <article class="linha-card revela" data-linha="frango" id="frango">
           <a class="linha-card__link" href="nossas-linhas.html#frango" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/oficial/frango-produto.jpg" alt="Linha Frango — Light Food Way" loading="lazy" width="913" height="611" data-foto>
+              <img src="assets/img/linhas/frango.webp" srcset="assets/img/linhas/frango-900.webp 900w, assets/img/linhas/frango.webp 1080w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Frango ao molho com arroz negro e brócolis — linha Frango da Light Food Way" loading="lazy" decoding="async" width="1080" height="810" data-foto>
               <span class="linha-card__etiqueta">Aves</span>
             </div>
             <div class="linha-card__corpo">
@@ -164,7 +170,7 @@
         <article class="linha-card revela" data-linha="bovina" id="bovina">
           <a class="linha-card__link" href="nossas-linhas.html#bovina" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/oficial/bovina-produto.jpg" alt="Linha Bovinas — Light Food Way" loading="lazy" width="913" height="611" data-foto>
+              <img src="assets/img/linhas/bovina.webp" srcset="assets/img/linhas/bovina-900.webp 900w, assets/img/linhas/bovina.webp 1066w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Carne desfiada com arroz, feijão preto e banana da terra — linha Bovinas da Light Food Way" loading="lazy" decoding="async" width="1066" height="799" data-foto>
               <span class="linha-card__etiqueta">Carnes</span>
             </div>
             <div class="linha-card__corpo">
@@ -177,7 +183,7 @@
         <article class="linha-card revela" data-linha="peixes" id="peixes">
           <a class="linha-card__link" href="nossas-linhas.html#peixes" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/oficial/peixes-produto.jpg" alt="Linha Peixes — Light Food Way" loading="lazy" width="888" height="602" data-foto>
+              <img src="assets/img/linhas/peixes.webp" srcset="assets/img/linhas/peixes-900.webp 900w, assets/img/linhas/peixes.webp 1280w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Filé de peixe com arroz, feijão e legumes — linha Peixes da Light Food Way" loading="lazy" decoding="async" width="1280" height="960" data-foto>
               <span class="linha-card__etiqueta">Do mar</span>
             </div>
             <div class="linha-card__corpo">
@@ -190,7 +196,7 @@
         <article class="linha-card revela" data-linha="massas" id="massas">
           <a class="linha-card__link" href="nossas-linhas.html#massas" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/oficial/massas-produto.jpg" alt="Linha Massas — Light Food Way" loading="lazy" width="1043" height="707" data-foto>
+              <img src="assets/img/linhas/massas.webp" srcset="assets/img/linhas/massas-900.webp 900w, assets/img/linhas/massas.webp 1280w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Massa com frango e legumes — linha Massas da Light Food Way" loading="lazy" decoding="async" width="1280" height="960" data-foto>
               <span class="linha-card__etiqueta">Massas</span>
             </div>
             <div class="linha-card__corpo">
@@ -203,7 +209,7 @@
         <article class="linha-card revela" data-linha="maromba" id="maromba">
           <a class="linha-card__link" href="nossas-linhas.html#maromba" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/oficial/maromba-produto.jpg" alt="Linha Maromba — Light Food Way" loading="lazy" width="1064" height="718" data-foto>
+              <img src="assets/img/linhas/maromba.webp" srcset="assets/img/linhas/maromba-900.webp 900w, assets/img/linhas/maromba.webp 1280w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Carne moída com purê de batata-doce — linha Maromba da Light Food Way" loading="lazy" decoding="async" width="1280" height="960" data-foto>
               <span class="linha-card__etiqueta">Treino</span>
             </div>
             <div class="linha-card__corpo">
@@ -216,7 +222,7 @@
         <article class="linha-card revela" data-linha="veggie" id="veggie">
           <a class="linha-card__link" href="nossas-linhas.html#veggie" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/oficial/veggie-produto.jpg" alt="Linha Veggie — Light Food Way" loading="lazy" width="1064" height="718" data-foto>
+              <img src="assets/img/linhas/veggie.webp" srcset="assets/img/linhas/veggie-900.webp 900w, assets/img/linhas/veggie.webp 957w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Estrogonofe de grão-de-bico — linha Veggie da Light Food Way" loading="lazy" decoding="async" width="957" height="718" data-foto>
               <span class="linha-card__etiqueta">Sem carne</span>
             </div>
             <div class="linha-card__corpo">
@@ -229,7 +235,7 @@
         <article class="linha-card revela" data-linha="sopas" id="sopas">
           <a class="linha-card__link" href="nossas-linhas.html#sopas" data-linha-popup aria-haspopup="dialog">
             <div class="linha-card__foto">
-              <img src="assets/img/linhas/oficial/sopas-produto.jpg" alt="Linha Sopas — Light Food Way" loading="lazy" width="697" height="564" data-foto>
+              <img src="assets/img/linhas/sopas.webp" srcset="assets/img/linhas/sopas-900.webp 900w, assets/img/linhas/sopas.webp 1280w" sizes="(min-width: 1240px) 390px, (min-width: 1020px) 30vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)" alt="Sopa de legumes com macarrão — linha Sopas da Light Food Way" loading="lazy" decoding="async" width="1280" height="960" data-foto>
               <span class="linha-card__etiqueta">Quentinho</span>
             </div>
             <div class="linha-card__corpo">
@@ -248,8 +254,7 @@
   <section class="secao" id="como-funciona">
     <div class="container">
       <div class="secao__head secao__head--centro">
-        <h2>Comer bem pode ser <em>simples</em></h2>
-        <p class="secao__sub">Escolha suas refeições, encontre uma unidade e tenha a praticidade da Light Food Way na sua rotina.</p>
+        <h2>Escolha suas refeições, encontre uma unidade e tenha a praticidade da Light Food Way <em>na sua rotina</em></h2>
       </div>
       <ol class="passos">
         <li class="passo revela"><span class="passo__num">1</span><span class="passo__icone"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/><path d="m13 12 4-4"/><path d="M10.9 7.25A3.99 3.99 0 0 0 4 10c0 .73.2 1.41.54 2"/></svg></span><h3>Escolha</h3><p>Conheça nossas linhas e encontre suas opções favoritas.</p></li>
@@ -268,7 +273,7 @@
       <a class="btn btn--secundario" href="sobre.html"><span class="btn-txt">Conheça nossa história</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Conheça nossa história</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
     </div>
     <div class="home-story__image">
-      <img src="assets/img/banners/hero-mesa.webp" alt="Pratos de refeições sobre uma mesa" width="1848" height="851" loading="lazy">
+      <img src="assets/img/banners/embalagens.webp" srcset="assets/img/banners/embalagens-900.webp 900w, assets/img/banners/embalagens.webp 1100w" sizes="(min-width: 901px) 40vw, 340px" alt="Embalagens coloridas das refeições Light Food Way empilhadas" width="1100" height="1253" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -340,9 +345,11 @@
         </a>
         <p>Comida de verdade para deixar sua rotina mais leve. Refeições práticas, saborosas e ultracongeladas.</p>
         <div class="sociais">
-          <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram da Light Food Way">Instagram</a>
-          <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook da Light Food Way">Facebook</a>
-          <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok da Light Food Way">TikTok</a>
+          <a href="https://www.instagram.com/lightfoodway/" target="_blank" rel="noopener" aria-label="Instagram da Light Food Way">Instagram</a>
+          <a href="https://www.facebook.com/lightfoodway/?locale=pt_BR" target="_blank" rel="noopener" aria-label="Facebook da Light Food Way">Facebook</a>
+          <!-- TikTok: sem perfil oficial definido. Para reativar, troque a URL pelo perfil real e descomente.
+          <a href="https://www.tiktok.com/@lightfoodway" target="_blank" rel="noopener" aria-label="TikTok da Light Food Way">TikTok</a>
+          -->
         </div>
       </div>
 
@@ -390,7 +397,7 @@
         <li><a href="#politica-de-privacidade" data-legal="privacidade">Privacidade</a></li>
         <li><a href="#termos-de-uso" data-legal="termos">Termos</a></li>
       </ul>
-      <a class="gr-credit" href="https://grbrands.com.br" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por GR Brands — abrir site"><span>Desenvolvido por</span><span class="gr-lockup"><img src="assets/img/grbrands-icon-white.svg" alt="" width="24" height="24"><strong>GR Brands<span class="gr-dot">.</span></strong></span></a>
+      <a class="gr-credit" href="https://grbrands.com.br" target="_blank" rel="noopener noreferrer" aria-label="Desenvolvido por GR Brands — abrir site"><span>Desenvolvido por</span><span class="gr-lockup"><img src="assets/img/grbrands-icon-white.svg" alt="" width="84" height="84"><strong>GR Brands<span class="gr-dot">.</span></strong></span></a>
     </div>
   </div>
 </footer>
@@ -399,10 +406,11 @@
   <a class="btn btn--primario btn--bloco" href="unidades.html"><span class="btn-txt">Encontre uma unidade</span><span class="btn-fundo" aria-hidden="true"></span><span class="btn-txt btn-txt--fundo" aria-hidden="true">Encontre uma unidade</span><span class="btn-icone" aria-hidden="true"><svg class="btn-icone__sai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><svg class="btn-icone__entra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
 </div>
 
-<script src="assets/js/main.min.js?v=2026-09-15" defer></script>
-<script src="assets/js/linhas-modal.js?v=2026-09-15" defer></script>
-<script src="assets/js/hero-titulos.js?v=2026-09-15-titulos" defer></script>
-<script src="assets/js/mapa-brasil.min.js" defer></script>
-<script src="assets/js/unidades.min.js?v=2026-09-15" defer></script>
+<script src="mapa-brasil.min.js?v=2026-09-22" defer></script>
+<script src="unidades.min.js?v=2026-09-22" defer></script>
+<script src="main.min.js?v=2026-09-22" defer></script>
+<script src="page-transitions.min.js?v=2026-09-22" defer></script>
+<script src="linhas-modal.min.js?v=2026-09-22" defer></script>
+<script src="hero-titulos.min.js?v=2026-09-22" defer></script>
 </body>
 </html>
