@@ -9,6 +9,10 @@
   // e-mail de ativação para esse endereço — basta clicar em "Activate Form" uma vez).
   const ENDPOINT = "https://formsubmit.co/ajax/expansao@lightfoodway.com.br";
   const EMAIL = "expansao@lightfoodway.com.br";
+  // URL do app da web do Apps Script que grava cada cadastro na planilha de leads
+  // (termina em /exec). Código e passo a passo em ../lightfoodway-planilha/.
+  // Enquanto estiver vazia, os cadastros seguem só por e-mail.
+  const PLANILHA_URL = "https://script.google.com/macros/s/AKfycbxy1I9OsmIVZAwY5DQ8ZAvs5dKiQ2Wrt2nmEYiQboO-ocmeqglw0BxjKibalxWfMZKi0g/exec";
   // ==========================
 
   const linkWhats = (extra) => {
@@ -113,14 +117,31 @@
 
     form.setAttribute("aria-busy", "true");
     status.textContent = "Enviando…";
-    try {
-      const r = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(dados),
-      });
+
+    // Planilha: text/plain para o navegador não fazer a pergunta prévia (OPTIONS), que o
+    // Apps Script não responde. Em no-cors a resposta não pode ser lida; chegar já basta.
+    const planilha = PLANILHA_URL
+      ? fetch(PLANILHA_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ ...d, pagina: location.href }),
+          keepalive: true,
+        }).then(() => true, () => false)
+      : Promise.resolve(false);
+    const email = fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(dados),
+    }).then(async (r) => {
       const j = await r.json().catch(() => ({}));
-      if (!r.ok || j.success === false || j.success === "false") throw new Error(j.message || r.status);
+      return r.ok && j.success !== false && j.success !== "false";
+    }, () => false);
+
+    try {
+      // Basta um dos dois chegar; a gravação na planilha pode levar alguns segundos.
+      const chegou = await Promise.any([planilha, email].map((envio) => envio.then((ok) => ok || Promise.reject())));
+      if (!chegou) throw new Error("nenhum envio");
       atualizarBotoes(`Meu nome é ${d.nome}, tenho interesse em ${d.cidade_operacao}.`);
       area.hidden = true;
       sucesso.hidden = false;

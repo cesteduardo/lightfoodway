@@ -9,13 +9,13 @@
 
 .exp-mosaico{position:relative;aspect-ratio:1/1;width:100%}
 .exp-mosaico img{position:absolute;display:block;object-fit:cover;border-radius:var(--r-lg);box-shadow:0 26px 56px #00000057;outline:1px solid rgba(255,255,255,.16);outline-offset:-1px}
-.exp-mosaico__a{left:0;top:4%;width:72%;height:58%}
-.exp-mosaico__b{right:0;top:0;width:44%;height:66%;z-index:1;object-position:50% 40%}
-.exp-mosaico__c{left:14%;bottom:0;width:62%;height:40%;z-index:2}
+.exp-mosaico__a{left:0;top:0;width:58%;height:56%}
+.exp-mosaico__b{right:0;top:0;width:39%;height:56%;object-position:50% 40%}
+.exp-mosaico__c{left:0;bottom:0;width:100%;height:41%;object-position:50% 60%}
 .exp-mosaico__tag{position:absolute;z-index:3;font-size:var(--fs-mini);font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:#fefefeeb;color:var(--verde-700);padding:.35rem .75rem;border-radius:var(--r-pill);box-shadow:var(--sombra-sm)}
-.exp-mosaico__tag--a{left:4%;top:8%}
-.exp-mosaico__tag--b{right:4%;top:58%}
-.exp-mosaico__tag--c{left:18%;bottom:5%}
+.exp-mosaico__tag--a{left:3%;top:4%}
+.exp-mosaico__tag--b{right:3%;top:4%}
+.exp-mosaico__tag--c{left:3%;bottom:4%}
 
 @media (max-width:860px){
   .hero-pagina--expansao .container{grid-template-columns:1fr}
@@ -62,6 +62,7 @@
 .exp-form-card{background:var(--superficie);border:1px solid var(--borda);border-radius:var(--r-lg);padding:clamp(1.3rem,1rem + 2vw,2.5rem);box-shadow:var(--sombra-sm)}
 .exp-form-card h2{font-size:clamp(1.6rem,1.2rem + 1.6vw,2.4rem)}
 .exp-form-card h2 em,.exp-perfil h2 em,#oportunidade h2 em{color:var(--lima-700);font-style:normal}
+.exp-form-card__preco{margin:0 0 1.2rem;padding:.85rem 1.1rem;border-radius:var(--r-md,14px);background:var(--lima-50);border:1px solid var(--lima-300);color:var(--verde-700);font-weight:500;line-height:1.45}.exp-form-card__preco strong{font-weight:700;white-space:nowrap}
 .exp-form-card__sub{color:var(--texto-suave);margin:0 0 1.6rem;max-width:56ch}
 
 .exp-form{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.05rem 1rem}
