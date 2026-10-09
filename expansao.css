@@ -116,3 +116,4 @@
 .exp-whats .exp-whats__email{font-size:.88rem;margin:1.1rem 0 0;color:#ffffffa6}
 .exp-whats__email a{color:var(--lima);text-decoration:underline;overflow-wrap:anywhere}
 @media (max-width:980px){.exp-whats{position:static}}
+@media (max-height:520px) and (orientation:landscape){.exp-mosaico{width:min(100%,320px);margin-inline:auto}}
