@@ -55,7 +55,7 @@
 @media (max-width:860px){.exp-perfil__grade{grid-template-columns:1fr}}
 
 /* 5 + 6. Formulário e WhatsApp */
-.exp-contato{scroll-margin-top:calc(var(--header-h) - 1rem)}
+.exp-contato{scroll-margin-top:calc(var(--header-h) - 1rem);overflow:clip}
 .exp-contato__grade{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:var(--gap);align-items:start;position:relative;z-index:1}
 @media (max-width:980px){.exp-contato__grade{grid-template-columns:1fr}}
 
