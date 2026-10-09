@@ -17,9 +17,27 @@
 .exp-mosaico__tag--b{right:3%;top:4%}
 .exp-mosaico__tag--c{left:3%;bottom:4%}
 
-@media (max-width:860px){
+/* empilha só no celular e no tablet em pé; deitado, texto e fotos ficam lado a lado */
+@media (max-width:560px),(max-width:900px) and (orientation:portrait){
   .hero-pagina--expansao .container{grid-template-columns:1fr}
   .exp-mosaico{width:min(440px,100%);margin-inline:auto;margin-top:.5rem}
+}
+/* tablet em pé: texto na largura toda e as três fotos numa faixa larga */
+@media (min-width:561px) and (max-width:900px) and (orientation:portrait){
+  .hero-pagina--expansao h1{max-width:16ch}
+  .hero-pagina--expansao p{max-width:60ch}
+  .exp-mosaico{width:100%;aspect-ratio:2.2/1;margin-top:1.75rem}
+  .exp-mosaico__a{left:0;top:0;width:38%;height:100%}
+  .exp-mosaico__b{left:40.5%;right:auto;top:0;width:25%;height:100%}
+  .exp-mosaico__c{left:auto;right:0;top:0;bottom:auto;width:32%;height:100%}
+  .exp-mosaico__tag--a{left:2.5%;top:auto;bottom:6%}
+  .exp-mosaico__tag--b{left:42.5%;right:auto;top:auto;bottom:6%}
+  .exp-mosaico__tag--c{left:70.5%;top:auto;bottom:6%}
+}
+/* tablet deitado: título menor para os botões caberem na primeira tela */
+@media (min-width:700px) and (max-width:1180px) and (orientation:landscape) and (min-height:521px){
+  .hero-pagina--expansao h1{font-size:clamp(2.2rem,1rem + 2.7vw,3.3rem);max-width:16ch}
+  .hero-pagina--expansao .container{grid-template-columns:minmax(0,1fr) clamp(280px,38vw,460px)}
 }
 @media (max-width:520px){
   .exp-hero__acoes .btn{width:100%;justify-content:space-between}
