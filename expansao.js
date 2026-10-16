@@ -46,8 +46,6 @@
     nome: "Informe seu nome completo.",
     whatsapp: "Informe um WhatsApp com DDD.",
     email: "Informe um e-mail válido.",
-    cidade: "Informe sua cidade.",
-    estado: "Selecione o estado.",
     cidade_operacao: "Informe a cidade onde pretende abrir a operação.",
   };
   const erroDe = (el) => el.closest(".exp-campo").querySelector("[data-erro]");
@@ -104,7 +102,6 @@
       "Nome": d.nome,
       "WhatsApp": d.whatsapp,
       "E-mail": d.email,
-      "Cidade / UF": `${d.cidade} / ${d.estado}`,
       "Cidade da operação": d.cidade_operacao,
       "Quando pretende iniciar": d.inicio,
       "Capital disponível": d.capital,
