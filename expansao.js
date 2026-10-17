@@ -28,8 +28,10 @@
 
   const form = document.querySelector("[data-form-expansao]");
   if (!form) return;
-  const area = document.querySelector("[data-form-area]");
   const sucesso = document.querySelector("[data-form-sucesso]");
+  // Pop-up de confirmação: fecha no ×, no Esc e clicando fora do painel.
+  sucesso.querySelector("[data-sucesso-fechar]").addEventListener("click", () => sucesso.close());
+  sucesso.addEventListener("click", (ev) => { if (ev.target === sucesso) sucesso.close(); });
   const status = form.querySelector("[data-form-status]");
 
   // Máscara de telefone (00) 00000-0000
@@ -113,6 +115,9 @@
     };
 
     form.setAttribute("aria-busy", "true");
+    const textos = [...form.querySelectorAll("[data-enviar] .btn-txt")];
+    const textoOriginal = textos[0].textContent;
+    textos.forEach((t) => { t.textContent = "Enviando…"; });
     status.textContent = "Enviando…";
 
     // Planilha: text/plain para o navegador não fazer a pergunta prévia (OPTIONS), que o
@@ -126,6 +131,11 @@
           keepalive: true,
         }).then(() => true, () => false)
       : Promise.resolve(false);
+    // O Apps Script leva de 5 a 15 s para abrir a planilha e só então responde. Falta de rede
+    // falha na hora; se em 4 s não falhou, o pedido já saiu e o keepalive leva até o fim.
+    const planilhaSaiu = PLANILHA_URL
+      ? Promise.race([planilha, new Promise((ok) => setTimeout(() => ok(true), 4000))])
+      : planilha;
     const email = fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -137,18 +147,18 @@
 
     try {
       // Basta um dos dois chegar; a gravação na planilha pode levar alguns segundos.
-      const chegou = await Promise.any([planilha, email].map((envio) => envio.then((ok) => ok || Promise.reject())));
+      const chegou = await Promise.any([planilhaSaiu, email].map((envio) => envio.then((ok) => ok || Promise.reject())));
       if (!chegou) throw new Error("nenhum envio");
       atualizarBotoes(`Meu nome é ${d.nome}, tenho interesse em ${d.cidade_operacao}.`);
-      area.hidden = true;
-      sucesso.hidden = false;
-      sucesso.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
-      sucesso.focus({ preventScroll: true });
+      form.reset();
+      status.textContent = "";
+      sucesso.showModal();
     } catch (e) {
       status.dataset.tipo = "erro";
       status.innerHTML = `Não foi possível enviar agora. Tente novamente ou <a href="${linkWhats()}">fale direto com a expansão</a>.`;
     } finally {
       form.removeAttribute("aria-busy");
+      textos.forEach((t) => { t.textContent = textoOriginal; });
     }
   });
 })();
